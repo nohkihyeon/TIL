@@ -152,6 +152,7 @@ void main() {
   - B. 구조체 각 멤버중에 가장 큰 멤버의 크기에 영향을 받는다.
 
 -cf)
+### 예시1 
 - a는 1바이트 b는 4바이트
   ```C
   typedef struct student
@@ -162,7 +163,7 @@ void main() {
   ```
  ![image](https://user-images.githubusercontent.com/65120581/126281107-0998a97b-78c2-43e1-8e04-b0d66538c57c.png)
 - a는 1바이트 b는 4바이트이지만, 실제로는 A때문에 3바이트의 여유공간을 두게된다.
-
+### 예시2
   ```C
   typedef struct student
   {
@@ -172,8 +173,8 @@ void main() {
   }S;
   ```
 ![image](https://user-images.githubusercontent.com/65120581/126281301-a8048be8-62a0-4967-b548-fb4a9daa1c06.png)
-- a는 1바이트 b는 1바이트, C는 4바이트의 공간으 두게된다.
-
+- a는 1바이트 b는 1바이트, C는 4바이트의 공간을 두게된다.
+### 예시3
   ```C
   typedef struct student
   {
@@ -185,7 +186,7 @@ void main() {
 ![image](https://user-images.githubusercontent.com/65120581/126281830-2647a049-efdf-4524-8852-2b57af611473.png)
 - a는 1바이트 b는 1바이트, C는 4바이트의 여유공간을 두게된다. 선언할 때 같은 자료타입이지만 배열하는 순서에 의해 할당되는 메모리공간이 달라짐을 이해할 수 있다.
 - 따라서 같은 데이터끼리, 작은 자료형을 앞에다가 선언하는 것이 유리하다.
-
+### 예시4
   ```C
   typedef struct student
   {
