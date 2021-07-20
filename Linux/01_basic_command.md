@@ -1,5 +1,5 @@
 # 리눅스 기본 명령어
-- [ls](#01_lslist_segments) - 현재 위치의 파일 목록을 조회하는 명령어
+- [ls](#t) - 현재 위치의 파일 목록을 조회하는 명령어
 - cd - 디렉토리를 이동하는 명령어
 - touch - 파일의 용량이 0인 파일을 생성, 날짜 변경하는 명령어
 - mkdir - 디렉토리를 생성하는 명령어
@@ -17,7 +17,6 @@
   >## Id Password 입력
   >![image](https://user-images.githubusercontent.com/65120581/126269412-770eb192-9a58-4043-bd49-169b22237b2d.png)
 
-## test
 ## 01. ls(list segments)
 - ls는 현재 위치의 파일 목록을 조회하는 명령어
   - ls -l : 파일들의 상세정보를 출력
