@@ -1,5 +1,5 @@
 # 리눅스 기본 명령어
-- [ls](#t) - 현재 위치의 파일 목록을 조회하는 명령어
+- [ls](#01_ls_list_segments) - 현재 위치의 파일 목록을 조회하는 명령어
 - cd - 디렉토리를 이동하는 명령어
 - touch - 파일의 용량이 0인 파일을 생성, 날짜 변경하는 명령어
 - mkdir - 디렉토리를 생성하는 명령어
@@ -26,9 +26,12 @@
   - ls -F : 파일을 표시할 때 마지막에 유형을 나타내는 파일명을 끝에 표시
       - 각 옵션들은 자유자재로 합성해서 사용 가능
       - cf) ls -lrt : 파일들의 상세정보를 나타내며, 오래된 것부터 표시
+
+
 ![image](https://user-images.githubusercontent.com/65120581/126273288-b0aadb47-f405-4d7e-8f72-1afd22a58d6c.png)
-..
 ![image](https://user-images.githubusercontent.com/65120581/126276441-db39e3b9-900e-4e5d-bdc4-7fd83ae5cca3.png)
+
+
 
 ## 02. cd(change directory)
 - cd는 경로를 이동할 때 사용하는 명령어
