@@ -27,6 +27,7 @@
       - 각 옵션들은 자유자재로 합성해서 사용 가능
       - cf) ls -lrt : 파일들의 상세정보를 나타내며, 오래된 것부터 표시
 ![image](https://user-images.githubusercontent.com/65120581/126273288-b0aadb47-f405-4d7e-8f72-1afd22a58d6c.png)
+..
 ![image](https://user-images.githubusercontent.com/65120581/126276441-db39e3b9-900e-4e5d-bdc4-7fd83ae5cca3.png)
 
 ## 02. cd(change directory)
@@ -96,7 +97,7 @@ $ cp -f directory2 directoryCopy
     - 명령 < 파일 : 파일의 데이터를 명령에 입력
         - cat < fname1 : fnmae1의 내용을 출력
     - cf) cat < fname1 > fname2 : fname1의 내용을 출력하는 결과물을 fname2에 저장
-    - 
+  
 ## 10. alias
 - alias는 자주 사용하는 명령어를 간단한 명령어로 설정하는 명령어
 - 해제 방법 : unalias
