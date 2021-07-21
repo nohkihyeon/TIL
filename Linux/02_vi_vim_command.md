@@ -9,12 +9,12 @@
 >### [행 번호 설정 명령어](#행-번호-설정-명령어)
 >### [보관 및 종료 명령어](#보관-및-종료-명령어)
 
-[보관](한글-키보드-단축키)
+[보관](#한글-키보드-단축키)
 
 ## vi 시작 명령어
 - vi {파일명}
-  - 예시 : `$ vi test.c` 입력한 파일명이 실제 존재 하지 않을 경우 파일을 생성
-####   ![vitest](https://user-images.githubusercontent.com/65120581/126420508-80a04c94-ef4c-47f9-bb1d-4c2892ac0d8d.gif)
+  - 예시 : `$ vi test.c` 입력한 파일명이 실제 존재 하지 않을 경우 파일을 생성 <br>
+![vitest](https://user-images.githubusercontent.com/65120581/126420508-80a04c94-ef4c-47f9-bb1d-4c2892ac0d8d.gif)
 - vi + {행번호}{파일명}
   - 예시 : `$ vi -10 test.c`
 - vi + /"{검색 문자열}"{파일명}
@@ -32,10 +32,10 @@
 - j (↓) : 아래로 커서 이동
 - k (↑) : 위로 커서 이동
 - l (→) : 오른쪽으로 커서 이동
-- w : 오른쪽 한 단어의 끝부분으로 커서 이동
+- w : 오른쪽 한 단어의 끝부분으로 커서 이동 <br>
  ![w push](https://user-images.githubusercontent.com/65120581/126423520-d182b4fd-4172-469b-a385-6c3cb2665c7c.gif)
 
-- e : 오른쪽 한 단어의 앞 부분으로 커서 이동
+- e : 오른쪽 한 단어의 앞 부분으로 커서 이동 <br>
   ![e push](https://user-images.githubusercontent.com/65120581/126423674-622b1020-9e3a-4c3c-bf07-5603e19e47f9.gif)
 
 - b : 왼쪽 한 단어의 앞 부분으로 커서 이동<br>
