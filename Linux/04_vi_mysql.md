@@ -15,7 +15,7 @@
     - ex) mysql -h 192.168.2.201 -P 22 -u root -p userDB 
 
 ## mysql 접속하기
-- Mysql 디렉토리 안의 db_lib 경로를 찾는 법
+- Mysql 디렉토리 안의 db_lib 경로를 찾는 법 <br>
 ![image](https://user-images.githubusercontent.com/65120581/126729945-b4965266-3671-489c-aec6-394ee0d1ddcd.png)
 - 각 db_lib 경로로 export를 먼저 진행 <br>
 `$ export LD_LIBRARY_PATH=:/home/khnoh/mysql/db_lib`
@@ -232,6 +232,8 @@ WHERE id = 6;
 ![image](https://user-images.githubusercontent.com/65120581/126738480-28837109-4bdf-4799-b4de-077e49e5384e.png)
 
 ## 참조
+> ## [생활코딩](https://opentutorials.org/course/3161)
+
 > ## [나긋한 개발자](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
 > ## [코드공장](https://code-factory.tistory.com/44)
