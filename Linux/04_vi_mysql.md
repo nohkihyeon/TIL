@@ -76,10 +76,55 @@ void main(int argc, char **argv){
 
 ![image](https://user-images.githubusercontent.com/65120581/126731304-33e5b296-72de-4b8d-a1c2-0d6da95c3dd3.png)
 
+## MySQL
+- DATABASE 생성
+  - `$ CREATE DATABASE khnoh;` <br>
+![image](https://user-images.githubusercontent.com/65120581/126738212-5f091785-2aca-4f55-87c2-5eaf472b69b6.png)
+
+- 테이블 삭제
+  - `DROP DATABASE khnoh;` <br>
+ 
+- 테이블 지정
+  - `USE khnoh;` <br>
+![image](https://user-images.githubusercontent.com/65120581/126738480-28837109-4bdf-4799-b4de-077e49e5384e.png)
+  
+- 테이블 생성
+```mysql
+CREATE TABLE topic(
+    -> id INT(11) not null auto_increment,
+    -> title varchar(100) not null,
+    -> description TEXT null,
+    -> created datetime not null,
+    -> author varchar(30) null,
+    -> profile varchar(100) null,
+    -> PRIMARY KEY(id));
+```
+![image](https://user-images.githubusercontent.com/65120581/126741288-b0bf3601-10ca-4d4f-9be3-49b2bdf62c48.png)
 
 
+- 테이블 dsecribe <br>
+  - DESC {테이블명}
+    - `> DESC topic;`
 
+![image](https://user-images.githubusercontent.com/65120581/126741363-4e4be9c4-b8ea-46b6-ba4a-f53f851a8cc1.png)
 
+- 테이블 행 추가
+```MySQL
+INSERT INTO topic (title, description, created, author, profile)  VALUES('MySQL','MySQL is...', NOW(), 'Eluon', 'Developer');
+```
+![image](https://user-images.githubusercontent.com/65120581/126741307-ca6e0901-1440-435d-bd3d-902032103c35.png)
+
+- 테이블 행 삭제
+```MySQL
+DELETE FROM topic WHERE id = 1;
+```
+
+- 테이블 조회
+```MySQL
+SELECT *
+FROM topic;
+```
+![image](https://user-images.githubusercontent.com/65120581/126744311-52dcd19e-047e-4ec4-8c76-e04ceef1aee3.png)
 
 ## 참조
 > ## [나긋한 개발자](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
