@@ -232,10 +232,10 @@ WHERE id = 6;
 ![image](https://user-images.githubusercontent.com/65120581/126738480-28837109-4bdf-4799-b4de-077e49e5384e.png)
 
 ## 참조
-> ## [생활코딩](https://opentutorials.org/course/3161)
+> ## [생활코딩-MySQL](https://opentutorials.org/course/3161)
 
-> ## [나긋한 개발자](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+> ## [나긋한 개발자-[MySQL] MySQL lib를 리눅스 C에서 사용하기](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
-> ## [코드공장](https://code-factory.tistory.com/44)
+> ## [코드공장-console에서 MySQL 접속방법](https://code-factory.tistory.com/44)
 
-> ## [AweSome Life](https://0x616b616d61.tistory.com/entry/Linux-%EB%A6%AC%EB%88%85%EC%8A%A4-C-%EC%97%90%EC%84%9C-mysql-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0linux-c-programming-with-mysql)
+> ## [AweSome Life-[Linux] 리눅스 C 에서 mysql 접속하기](https://0x616b616d61.tistory.com/entry/Linux-%EB%A6%AC%EB%88%85%EC%8A%A4-C-%EC%97%90%EC%84%9C-mysql-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0linux-c-programming-with-mysql)
