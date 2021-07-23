@@ -79,13 +79,14 @@ void main(int argc, char **argv){
 ## MySQL
 
 ### CRUD
->#### [1. CREATE](create)
->#### [2. READ](read)
->#### [3. UPDATE](update)
->#### [4. DELETE](delete)
+>#### [1. CREATE](#create)
+>#### [2. READ](#read)
+>#### [3. UPDATE](#update)
+>#### [4. DELETE](#delete)
+>#### [5. etc](#etc)
 
 ### CREATE
-- syntax
+- Syntax
 ```MySQL
 CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
     (create_definition,...)
@@ -97,12 +98,6 @@ CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
   - `$ CREATE DATABASE khnoh;` <br>
 ![image](https://user-images.githubusercontent.com/65120581/126738212-5f091785-2aca-4f55-87c2-5eaf472b69b6.png)
 
-- 테이블 삭제
-  - `DROP DATABASE khnoh;` <br>
- 
-- 테이블 지정
-  - `USE khnoh;` <br>
-![image](https://user-images.githubusercontent.com/65120581/126738480-28837109-4bdf-4799-b4de-077e49e5384e.png)
   
 - 테이블 생성
 ```mysql
@@ -117,25 +112,15 @@ CREATE TABLE topic(
 ```
 ![image](https://user-images.githubusercontent.com/65120581/126741288-b0bf3601-10ca-4d4f-9be3-49b2bdf62c48.png)
 
-
-  - 테이블 dsecribe <br>
-    - DESC {테이블명}
-      - `> DESC topic;`
-
-![image](https://user-images.githubusercontent.com/65120581/126741363-4e4be9c4-b8ea-46b6-ba4a-f53f851a8cc1.png)
-
 - 테이블 행 추가
 ```MySQL
 INSERT INTO topic (title, description, created, author, profile)  VALUES('MySQL','MySQL is...', NOW(), 'Eluon', 'Developer');
 ```
 ![image](https://user-images.githubusercontent.com/65120581/126741307-ca6e0901-1440-435d-bd3d-902032103c35.png)
 
-- 테이블 행 삭제
-```MySQL
-DELETE FROM topic WHERE id = 1;
-```
+
 ### READ
-- syntax
+- Syntax
 ```mysql
 SELECT
     [ALL | DISTINCT | DISTINCTROW ]
@@ -222,11 +207,29 @@ DELETE [LOW_PRIORITY] [QUICK] [IGNORE] FROM tbl_name [[AS] tbl_alias]
     [ORDER BY ...]
     [LIMIT row_count]
 ```
+- 테이블 행 삭제
 ```MySQL
-DELETE topic from 
+DELETE FROM topic WHERE id = 1;
+```
+
+```MySQL
+DELETE FROM topic
+WHERE id = 6;
 ```
 ![image](https://user-images.githubusercontent.com/65120581/126748214-8340962a-0848-45ad-93f7-2734c7af9a5a.png)
 
+### etc
+- 테이블 dsecribe <br>
+  - DESC {테이블명}
+    - `> DESC topic;`
+
+![image](https://user-images.githubusercontent.com/65120581/126741363-4e4be9c4-b8ea-46b6-ba4a-f53f851a8cc1.png)
+- 테이블 삭제
+  - `DROP DATABASE khnoh;` <br>
+ 
+- 테이블 지정
+  - `USE khnoh;` <br>
+![image](https://user-images.githubusercontent.com/65120581/126738480-28837109-4bdf-4799-b4de-077e49e5384e.png)
 
 ## 참조
 > ## [나긋한 개발자](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
