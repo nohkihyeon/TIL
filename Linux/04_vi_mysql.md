@@ -77,6 +77,22 @@ void main(int argc, char **argv){
 ![image](https://user-images.githubusercontent.com/65120581/126731304-33e5b296-72de-4b8d-a1c2-0d6da95c3dd3.png)
 
 ## MySQL
+
+### CRUD
+>#### [1. CREATE](create)
+>#### [2. READ](read)
+>#### [3. UPDATE](update)
+>#### [4. DELETE](delete)
+
+### CREATE
+- syntax
+```MySQL
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+```
+
 - DATABASE 생성
   - `$ CREATE DATABASE khnoh;` <br>
 ![image](https://user-images.githubusercontent.com/65120581/126738212-5f091785-2aca-4f55-87c2-5eaf472b69b6.png)
@@ -102,9 +118,9 @@ CREATE TABLE topic(
 ![image](https://user-images.githubusercontent.com/65120581/126741288-b0bf3601-10ca-4d4f-9be3-49b2bdf62c48.png)
 
 
-- 테이블 dsecribe <br>
-  - DESC {테이블명}
-    - `> DESC topic;`
+  - 테이블 dsecribe <br>
+    - DESC {테이블명}
+      - `> DESC topic;`
 
 ![image](https://user-images.githubusercontent.com/65120581/126741363-4e4be9c4-b8ea-46b6-ba4a-f53f851a8cc1.png)
 
@@ -118,6 +134,42 @@ INSERT INTO topic (title, description, created, author, profile)  VALUES('MySQL'
 ```MySQL
 DELETE FROM topic WHERE id = 1;
 ```
+### READ
+- syntax
+```mysql
+SELECT
+    [ALL | DISTINCT | DISTINCTROW ]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr] ...
+    [into_option]
+    [FROM table_references
+      [PARTITION partition_list]]
+    [WHERE where_condition]
+    [GROUP BY {col_name | expr | position}, ... [WITH ROLLUP]]
+    [HAVING where_condition]
+    [WINDOW window_name AS (window_spec)
+        [, window_name AS (window_spec)] ...]
+    [ORDER BY {col_name | expr | position}
+      [ASC | DESC], ... [WITH ROLLUP]]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+    [into_option]
+    [FOR {UPDATE | SHARE}
+        [OF tbl_name [, tbl_name] ...]
+        [NOWAIT | SKIP LOCKED]
+      | LOCK IN SHARE MODE]
+    [into_option]
+
+into_option: {
+    INTO OUTFILE 'file_name'
+        [CHARACTER SET charset_name]
+        export_options
+  | INTO DUMPFILE 'file_name'
+  | INTO var_name [, var_name] ...
+}
+```
 
 - 테이블 조회
 ```MySQL
@@ -125,6 +177,56 @@ SELECT *
 FROM topic;
 ```
 ![image](https://user-images.githubusercontent.com/65120581/126744311-52dcd19e-047e-4ec4-8c76-e04ceef1aee3.png)
+
+- 테이블 정렬
+```MySQL
+SELECT *
+FROM topic
+ORDER BY id DESC;
+```
+![image](https://user-images.githubusercontent.com/65120581/126746585-cb7589fc-cf99-4201-89f1-22d691e65f2f.png) <br>
+```MySQL
+SELECT *
+FROM topic
+ORDER BY id DESC LIMIT 2;   // 2개만 보고 싶을 경우
+```
+![image](https://user-images.githubusercontent.com/65120581/126746718-aea45876-d9e7-4f28-8c3e-481deb02c5d5.png)
+
+### UPDATE
+- Syntax
+```MySQL
+UPDATE [LOW_PRIORITY] [IGNORE] table_reference
+    SET assignment_list
+    [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+
+value:
+    {expr | DEFAULT}
+
+assignment:
+    col_name = value
+
+assignment_list:
+    assignment [, assignment] ...
+```
+- `UPDATE topic SET title='Oracle', author = 'jsPark' WHERE id = 3;` 
+![image](https://user-images.githubusercontent.com/65120581/126747827-107c27a2-e8d5-49a0-8ada-e47842442b08.png)
+
+### DELETE
+- Syntax
+```MySQL
+DELETE [LOW_PRIORITY] [QUICK] [IGNORE] FROM tbl_name [[AS] tbl_alias]
+    [PARTITION (partition_name [, partition_name] ...)]
+    [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+```
+```MySQL
+DELETE topic from 
+```
+![image](https://user-images.githubusercontent.com/65120581/126748214-8340962a-0848-45ad-93f7-2734c7af9a5a.png)
+
 
 ## 참조
 > ## [나긋한 개발자](https://sacstory.tistory.com/entry/mysql-lib%EB%A5%BC-c%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
