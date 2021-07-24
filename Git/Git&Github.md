@@ -1,7 +1,7 @@
 # Git & Github
 
 ## Git
-- 로컬에서 관리되느 버저 관리 시스템(VCS : Version Control System)
+- 로컬에서 관리되는 버전 관리 시스템(VCS : Version Control System)
 - 소스코드 수정에 따른 버전을 관리해주느 시스템
 
 ## Github
