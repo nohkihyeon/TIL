@@ -45,4 +45,4 @@ Button normalButton = new Button("단일 사건처리자");
 			textOutArea.setText("");
 		});
 ```
-[전체코드 보기](./ObsererPattern/Observer-GUI-Event/src/MultipleActionTest.java)
+[전체코드 보기](./Observer-GUI-Event/src/MultipleActionTest.java)
