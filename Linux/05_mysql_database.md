@@ -1,5 +1,117 @@
-# mysql
+# MySQL CRUD C로 구현하기 
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<mysql.h>
+#include<errno.h>
 
+void print_menu(){
+    printf("==================\n");
+    printf("1. Display all Tables\n");
+    printf("2. Select Tables\n");
+    printf("3. Add\n");
+    printf("4. change\n");
+    printf("5. Delete\n");
+    printf("6. Exit\n");
+    printf("==================\n");
+    printf("Enter number : ");
+}
+
+void main(int argc, char **argv){
+    MYSQL *conn;
+    MYSQL_RES *result;
+    MYSQL_ROW row;
+
+    char query_buffer[2048];
+
+    conn = mysql_init(NULL);
+    int n=0;
+    int i;
+    char table_name[100];
+    MYSQL_FIELD *field;
+
+    if(!mysql_real_connect(conn, "127.0.0.1", "root", ".dlfndhs", NULL, 0, NULL, 0)){
+        printf("Cannot connect");
+        exit(1);
+    }
+    else {
+        if (mysql_select_db(conn, "khnoh")){
+            printf("cannot use database");
+            exit(1);
+        }
+    }
+
+    while(n!=6){
+        print_menu();
+        scanf("%d", &n);
+        if(n==1){                                           // 1. show tables;
+            sprintf(query_buffer, "%s", "show tables;");
+            if(mysql_query(conn, query_buffer)){
+                printf("query faild : %s\n", query_buffer);
+                exit(1);
+            }
+
+            result = mysql_use_result(conn);
+            while((row = mysql_fetch_row(result)) != NULL)
+                printf("%s \n", row[0]);
+        }
+        if(n==2){                                         // 2. select * from table;
+            printf("Enter table name : ");
+            scanf("%s", &table_name);
+            sprintf(query_buffer, "%s %s", "select * from", table_name);
+            if(mysql_query(conn, query_buffer)){
+                printf("query faild : %s\n", query_buffer);
+                exit(1);
+	 }
+
+            result = mysql_use_result(conn);
+            while((row = mysql_fetch_row(result)) != NULL){
+                for(i=0; i<mysql_num_fields(result); i++){
+                    if(i==0){
+                        while(field = mysql_fetch_field(result))
+                        {
+                            printf("%-25s", field->name);
+                        }
+                        printf("\n");
+                    }
+                    printf("%-25s", row[i]);
+                }
+            }
+            printf("\n");
+        }
+        if(n==3){                                         // 3. Insert into                             
+
+        }
+        if(n==4){                                         // 4. Update                             
+
+        }
+        if(n==5){                                         // 5. Delete                              
+
+        }
+    }
+
+    mysql_free_result(result);
+    mysql_close(conn);
+}
+
+```
+
+## 1번
+- `Show tables;` 결과화면 <br>
+![image](https://user-images.githubusercontent.com/65120581/126948380-b7fd74d1-1de0-481b-a752-0d66b82273a3.png)
+
+## 2번
+- `select * from table;` 결과화면 <br>
+![image](https://user-images.githubusercontent.com/65120581/126948495-6f96b1d2-d519-40a5-92e2-796a718a3a71.png)
+
+
+## 3번
+
+## 4번
+
+## 5번
+
+# MySQL JOIN 
 - `rename table topic to topic_backup` <br>
 ![image](https://user-images.githubusercontent.com/65120581/126920967-d86cdd58-c986-4f94-be32-2d73ff36534c.png)
 
