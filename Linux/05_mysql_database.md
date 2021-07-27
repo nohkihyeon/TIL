@@ -30,7 +30,7 @@ void main(int argc, char **argv){
     char table_name[100];
     MYSQL_FIELD *field;
 
-    if(!mysql_real_connect(conn, "127.0.0.1", "root", ".dlfndhs", NULL, 0, NULL, 0)){
+    if(!mysql_real_connect(conn, "127.0.0.1", "root", "PASSWORD", NULL, 0, NULL, 0)){
         printf("Cannot connect");
         exit(1);
     }
