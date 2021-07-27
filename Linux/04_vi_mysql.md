@@ -36,7 +36,7 @@ void main(int argc, char **argv){
 
     conn = mysql_init(NULL);
 
-    if(!mysql_real_connect(conn, "127.0.0.1", "root", ".dlfndhs", NULL, 0, NULL, 0)){
+    if(!mysql_real_connect(conn, "127.0.0.1", "root", "PASSWORD", NULL, 0, NULL, 0)){
         printf("Cannot connect");
         exit(1);
     }
