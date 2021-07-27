@@ -110,6 +110,13 @@
 - `:1,2 co 3` : 1~2행을 3행 다음으로 복사
 - `:4,5 m 6` : 4~5행을 6행 위로 이동
 
+## 찾기 및 이동
+- /keyword : keyword를 스크립트 내에서 검색 
+  - n : 다음 찾기로 이동
+  - N : 이전 찾기로 이동 <br>
+![pushnN](https://user-images.githubusercontent.com/65120581/127123316-92328b0e-ca0a-435e-be72-db061794474f.gif)
+
+
 ## 행 번호 설정 명령어
 - `:set nu` 또는 :set number
 - `:set nonu`
