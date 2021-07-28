@@ -72,6 +72,55 @@ gcc -o diary_exe main.o memo.o calendar.o
 ![image](https://user-images.githubusercontent.com/65120581/127276358-dcdcbdef-1493-4cbd-9af0-66cbe7062290.png)
 
 ### 3. 결과 확인하기
+![image](https://user-images.githubusercontent.com/65120581/127290511-ca189e90-9b71-481f-b373-c941f5d33493.png)
+- 기존의 컴파일 과정이 지금까지는 3개의 파일만 하기 때문에 어렵지 않다.
+- 3번만 명령해 주면 간단하다.
+- 하지만 1,000,000개 c 파일이 있다면 100만 개가 필요하다.
+
+## Makefile의 구성
+
+### Makefile의 구조
+- 목적파일(Target) : 명령어가 수행되어 나온 결과를 저장할 파일
+- 의존성(Dependency) : 목적파일을 만들기 위해 필요한 재료
+- 명령어(Command) : 실행 되어야 할 명령어들
+- 매크로(Macro) : 코드를 단순화 시키기 위한 방법
+
+```
+CC = gcc
+
+target 1 : dependency1 dependency2
+        command1
+        command2
+target 2 : dependency3 dependency4
+        command3
+        command4
+```
+### Makefile 작성규칙
+- 목표파일 : 목표파일을 만드는데 필요한 구성요소들
+- (tab)목표를 달성하기 위한 명령1
+- (tab)목표를 달성하기 위한 명령2
+  - Makefile에 정의한 string으로 치환
+  - 명령어의 시작은 반드시 tab으로 시작
+  - Dependency가 없는 target도 사용 가능 
+
+- `$ vi Makefile`
+```
+diary_exe : memo.o calendar.o main.o
+  gcc -o diary_exe memo.o calendar.o main.o
+  
+memo.o : memo.c
+  gcc -c -o mmo.o memo.c
+calendar.o : calendar.c
+  gcc -c -o calendar.o calendar.c
+main.o main.c
+  gcc -c -o main.o main.c
+clean :
+  rm * .o diary_exe
+```
+
+`$ make clean`
+
+`$ make`로  
 
 
 
