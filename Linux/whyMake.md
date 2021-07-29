@@ -104,7 +104,7 @@ target 2 : dependency3 dependency4
   - Dependency가 없는 target도 사용 가능 
 
 - `$ vi Makefile`
-```
+```vim
 diary_exe : memo.o calendar.o main.o
   gcc -o diary_exe memo.o calendar.o main.o
   
@@ -112,19 +112,73 @@ memo.o : memo.c
   gcc -c -o mmo.o memo.c
 calendar.o : calendar.c
   gcc -c -o calendar.o calendar.c
-main.o main.c
+main.o : main.c
   gcc -c -o main.o main.c
 clean :
   rm * .o diary_exe
 ```
+![image](https://user-images.githubusercontent.com/65120581/127415480-e570bc4a-c702-4282-ae40-31bf19e2a259.png)
 
-`$ make clean`
+- `$ make clean` 현재 디렉토리의 모든 object 파일들과 생성된 실행파일인 diary_exe를 rm 명령어로 제거
 
-`$ make`로  
+- `$ make`로 실행
+![image](https://user-images.githubusercontent.com/65120581/127418390-d6678cca-26b4-41cb-8849-37be42de95ae.png)
+
+
+## 매크로 사용하기
+
+- 중복되는 파일 이름을 단어로 치환
+
+### 작성규칙
+- 소괄호나 중괄호 둘러싸고 앞에 '$'를 붙인다.
+- 탭으로 시작해서는 안되고, :,=,#,"" 등 매크로 이름에 사용할 수 없다.
+- 매크로는 반드시 치환될 위치보다 먼저 정의 되어야 한다.
+
+```vim
+CC = gcc
+CFLAGS = -W -WALL
+TARGET = diary_exe
+
+$(TARGET) : memo.o calendar.o main.o
+    $(CC) $(CFLAGS)  $(TARGET)  memo.o calendar.o main.o
+
+memo.o : memo.c
+    $(CC) $(CFLAGS) -o mmo.o memo.c
+
+calendar.o : calendar.c
+    $(CC) $(CFLAGS) -o calendar.o calendar.c
+
+main.o : main.c
+    $(CC) $(CFLAGS) -o main.o main.c
+
+clean :
+    rm * .o diary_exe
+```
+
+### 내부 매크로 사용
+```vim
+CC = gcc
+CFLAGS = -W -Wall
+TARGET = diary_exe
+OBJECT = memo.o main.o calendar.o
+
+all : $(TARGET)
+
+$(TARGET) : $(OBJECT)
+              $(CC) $(CFLAGS) -o $@ $^
+
+clean :
+    rm * .o diary_exe
+
+```
+![image](https://user-images.githubusercontent.com/65120581/127423622-c77eb71d-cdb5-4a87-888a-8c440d2646fe.png)
 
 
 
-
+<br>
+<br>
+<br>
+<br>
 
 > ### 참조
 
