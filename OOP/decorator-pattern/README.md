@@ -1,4 +1,4 @@
-# 장시 패턴
+# 장식 패턴
 - 패턴의 목적 : This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. – GoF –
 - 패턴의 사용
   - 상속에 의한 제약사항에 구속 받지 않고 동적으로 객체에 새로운 책임(행위, 상태)을 추가하고 싶을 경우 (다른 동일 타입 객체들에게 영향을 주지 않고)
