@@ -121,7 +121,7 @@ clean :
 
 - `$ make clean` 현재 디렉토리의 모든 object 파일들과 생성된 실행파일인 diary_exe를 rm 명령어로 제거
 
-- `$ make`로 실행
+- `$ make`로 실행 <br>
 ![image](https://user-images.githubusercontent.com/65120581/127418390-d6678cca-26b4-41cb-8849-37be42de95ae.png)
 
 
