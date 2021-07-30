@@ -20,6 +20,12 @@
 - 각 db_lib 경로로 export를 먼저 진행 <br>
 `$ export LD_LIBRARY_PATH=:/home/khnoh/mysql/db_lib`
 
+> - 위의 방법은 터미널을 실행할 때 마다 export 해야 정상적으로 작동된다.
+> - `vi ~/.bashrc` bashrc는 별칭(alias)과 bash가 수행될 때 실행되는 함수를 제어하는 지역적인 시스템 설정과 관련된 파일로써, 모든 프로그램이 실행되기 전 수행된다. <br>
+> `export LD_LIBRARY_PATH=:/home/khnoh/mysql/db_lib`를 추가해준다.
+> ![image](https://user-images.githubusercontent.com/65120581/127604539-27bb35dc-75b9-4ccc-a949-f1534f3773b8.png)
+
+
 - C 파일 컴파일 하는 법 ex) main.c <br>
 ```C
 #include<stdio.h>
