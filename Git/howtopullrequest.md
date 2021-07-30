@@ -22,15 +22,15 @@
 ### 3. branch 생성
 ### 4. 수정 작어 후 add, commit, push
 ### 5. Pull Request 생성
-<img width="1006" alt="스크린샷 2021-07-30 오후 11 50 58" src="https://user-images.githubusercontent.com/65120581/127671108-251cc107-f0d7-410a-b0fa-9890ffef723b.png">
+<img width="1006" alt="스크린샷 2021-07-30 오후 11 50 58" src="https://user-images.githubusercontent.com/65120581/127671108-251cc107-f0d7-410a-b0fa-9890ffef723b.png"> <br>
 - push 후 계정에 Compare & pull request 버튼이 활성화 되어 있다.
 - 해당 버튼을 클릭 후 메시지를 작성한다.
-<img width="1022" alt="스크린샷 2021-07-30 오후 11 53 11" src="https://user-images.githubusercontent.com/65120581/127671404-d07cf242-dc66-4d65-b5d9-fae906293e92.png">
+<img width="1022" alt="스크린샷 2021-07-30 오후 11 53 11" src="https://user-images.githubusercontent.com/65120581/127671404-d07cf242-dc66-4d65-b5d9-fae906293e92.png"> <br>
 ### 6. 코드리뷰, Merge pull Request
 - Review Changes
-<img width="1386" alt="스크린샷 2021-07-30 오후 11 56 29" src="https://user-images.githubusercontent.com/65120581/127671878-1ad3c5aa-326f-48ca-8c5e-4e139069ca90.png">
-
-- PR을 Merge 하느 방법으 3가지가 있다.
+<img width="1386" alt="스크린샷 2021-07-30 오후 11 56 29" src="https://user-images.githubusercontent.com/65120581/127671878-1ad3c5aa-326f-48ca-8c5e-4e139069ca90.png"> <br>
+### 7. Merge 이 branch 삭제 및 동기화
+- PR을 Merge 하는 방법은 3가지가 있다.
 <img width="1349" alt="스크린샷 2021-07-31 오전 12 03 55" src="https://user-images.githubusercontent.com/65120581/127672852-e93afb27-90e0-44b1-9d5c-f298a137bc2c.png"> <br>
     #### 1. Create a merge commit
     - PR의 commit들이 메시지와 함께 master의 Head commit을 들어간다. `$ git merge` 명령어와 똑같다.
@@ -46,17 +46,19 @@
 
 ### PR 병합 후 Revert
 - `$ git revert`와 동일하게 PR도 되돌릴 수 있다. <br>
-<img width="979" alt="스크린샷 2021-07-31 오전 12 13 33" src="https://user-images.githubusercontent.com/65120581/127674112-cea9cf42-46e2-4725-b8f4-6bb061ba36cc.png">
+<img width="979" alt="스크린샷 2021-07-31 오전 12 13 33" src="https://user-images.githubusercontent.com/65120581/127674112-cea9cf42-46e2-4725-b8f4-6bb061ba36cc.png"> <br>
 - Revert 버튼을 클릭 하며 모든 commit이 되돌려진다.
-- Delete branch 버튼으 클릭하면 PR 병하 후에는 필요 없는 브랜치르 지울 수 있다.
-<img width="929" alt="스크린샷 2021-07-31 오전 12 16 12" src="https://user-images.githubusercontent.com/65120581/127674385-90171ee2-a77a-4fba-98ac-8885f19e1c54.png">
+- Delete branch 버튼으 클릭하면 PR 병하 후에는 필요 없는 브랜치를 지울 수 있다.
+<img width="929" alt="스크린샷 2021-07-31 오전 12 16 12" src="https://user-images.githubusercontent.com/65120581/127674385-90171ee2-a77a-4fba-98ac-8885f19e1c54.png"> <br>
+- 병합된 모습 
+<img width="918" alt="스크린샷 2021-07-31 오전 12 18 40" src="https://user-images.githubusercontent.com/65120581/127674665-3476bd98-e77a-450c-8310-2c00f40f31d6.png">
 
 <br>
 <br>
 <br>
 <br>
 <br>
-<br>
+
 > ## 참조
 
 > ### [git 초보를 위한 풀리퀘스트(pull request) 방법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
