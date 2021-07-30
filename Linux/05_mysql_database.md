@@ -106,10 +106,13 @@ void main(int argc, char **argv){
 
 
 ## 3번
+![image](https://user-images.githubusercontent.com/65120581/127613119-428dedac-0b14-40be-ab00-83e9657a0561.png)
 
 ## 4번
+![image](https://user-images.githubusercontent.com/65120581/127613295-7d62f37f-c4c9-4941-8cec-2d6ab8bd81f9.png)
 
 ## 5번
+![image](https://user-images.githubusercontent.com/65120581/127613443-b76d9348-3c67-4681-96a0-00a4f43a4fd3.png)
 
 # MySQL JOIN 
 - `rename table topic to topic_backup` <br>
