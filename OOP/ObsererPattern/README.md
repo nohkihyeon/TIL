@@ -13,6 +13,10 @@
 - 패턴의 구조 <br>
 ![스크린샷 2021-07-25 오후 11 52 01](https://user-images.githubusercontent.com/65120581/126903463-e95e47a7-1c9c-4329-b92d-476fe2f036cd.png)
 
+- Weather Monitoring App
+<img width="595" alt="스크린샷 2021-08-01 오후 12 46 04" src="https://user-images.githubusercontent.com/65120581/127758511-2962c887-aef3-465a-99d5-ce1b2451d457.png">
+- 현재 날씨, 날씨통계정보, 일기예보 세 종류의 출력장치를 지원해야 하며, 확장 가능하도록 API를 제공해야 함
+
 
 - 관찰자 패턴 예시 <br>
 <img width="534" alt="스크린샷 2021-07-24 오후 7 12 28" src="https://user-images.githubusercontent.com/65120581/126865324-4a4a71d4-744b-4e86-8641-f3357219caaa.png">
