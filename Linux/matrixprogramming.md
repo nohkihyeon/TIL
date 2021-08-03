@@ -85,7 +85,7 @@ int main()
             // c[i][j] = a[i][j] + b[i][j];
             c[i][j] = 0;
             for(k=0; k<MAX_LEN; k++){
-                c[i][j] += a[i][k] *b[i][j];
+                c[i][j] += a[i][k] *b[k][j];
             }
         }
     }
@@ -182,7 +182,7 @@ void matrix_mul(int** a, int** b, int** c, int len)
             // c[i][j] = a[i][j] + b[i][j];
             c[i][j] = 0;
             for(k=0; k<len; k++){
-                c[i][j] += a[i][k] *b[i][j];
+                c[i][j] += a[i][k] *b[k][j];
             }
         }
     }
