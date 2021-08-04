@@ -220,7 +220,6 @@ void init_matrix(int*** p_a, int*** p_b, int*** p_c, int len)
 ### 컴파일 명령어
 - gcc matrix.c -o matrix -pthread -lpthread
 
-
 ### Makefile
 ```Makefile
 
@@ -255,6 +254,20 @@ clean:
 - $@ : 현재 Target 이름
 - $^ : 현재 Target이 의존하는 대상들의 전체 목록
 - $? : 현재 Target이 의존하는 대상들 중 변경된 것들의 목록
+
+### 파일 생성된 모습
+![image](https://user-images.githubusercontent.com/65120581/128149772-89655075-3f30-44f0-b081-c11f0f429c0e.png)
+
+### `$ make` 
+
+![image](https://user-images.githubusercontent.com/65120581/128149887-9777675f-9aa8-43e2-9731-111f53d706c4.png)
+
+### `$ make all`
+![image](https://user-images.githubusercontent.com/65120581/128150013-3a42b839-650d-435e-b53b-500c91116a82.png)
+
+
+### ` $ make clean`
+![image](https://user-images.githubusercontent.com/65120581/128149715-000532f8-06d8-4fb1-91c7-cd3c3fe79fc2.png)
 
 <br>
 <br>
