@@ -115,7 +115,7 @@ calendar.o : calendar.c
 main.o : main.c
   gcc -c -o main.o main.c
 clean :
-  rm * .o diary_exe
+  rm *.o diary_exe
 ```
 ![image](https://user-images.githubusercontent.com/65120581/127415480-e570bc4a-c702-4282-ae40-31bf19e2a259.png)
 
