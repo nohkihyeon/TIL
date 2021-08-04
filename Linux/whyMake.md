@@ -109,7 +109,7 @@ diary_exe : memo.o calendar.o main.o
   gcc -o diary_exe memo.o calendar.o main.o
   
 memo.o : memo.c
-  gcc -c -o mmo.o memo.c
+  gcc -c -o memo.o memo.c
 calendar.o : calendar.c
   gcc -c -o calendar.o calendar.c
 main.o : main.c
@@ -143,7 +143,7 @@ $(TARGET) : memo.o calendar.o main.o
     $(CC) $(CFLAGS)  $(TARGET)  memo.o calendar.o main.o
 
 memo.o : memo.c
-    $(CC) $(CFLAGS) -o mmo.o memo.c
+    $(CC) $(CFLAGS) -o memo.o memo.c
 
 calendar.o : calendar.c
     $(CC) $(CFLAGS) -o calendar.o calendar.c
@@ -164,11 +164,15 @@ OBJECT = memo.o main.o calendar.o
 
 all : $(TARGET)
 
+.c.o :
+    $(CC) $(CFLAGS) -c $<
+
 $(TARGET) : $(OBJECT)
-              $(CC) $(CFLAGS) -o $@ $^
+    $(CC) $(CFLAGS) -o $@ $^
 
 clean :
-    rm * .o diary_exe
+    rm *.o diary_exe
+
 
 ```
 ![image](https://user-images.githubusercontent.com/65120581/127423622-c77eb71d-cdb5-4a87-888a-8c440d2646fe.png)
