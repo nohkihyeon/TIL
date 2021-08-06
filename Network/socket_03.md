@@ -24,7 +24,7 @@
 Struct dirent {
   long             d_ino;              // I-노드 번호
   off_t            d_off;              // offset
-  unsigned  short  d_reclen;     // 파일 이름 길이
+  unsigned  short  d_reclen;           // 파일 이름 길이
   char             d_name[NAME_MAX+1]; // 파일 이름
 ```
 
@@ -96,7 +96,7 @@ int main(void) {
         /* 3. 소켓을 주소와 포트에 연결
          * s_socket을 변수 s_addr에 따라 연결
          */
-        if(bind(s_socket, (struct sockaddr *) &s_addr, siz
+        if(bind(s_socket, (struct sockaddr *) &s_addr, sizeof(s_addr)) == -1) {
                 printf("can not Bind\n");
                 return -1;
         }
@@ -113,7 +113,7 @@ int main(void) {
         while(1){
                 // 6. 연결 요청을 수신
                 len = sizeof(c_addr);
-                c_socket = accept(s_socket, (struct sockad
+                c_socket = accept(s_socket, (struct sockaddr *) &c_addr, &len);
 
                 // 7. 파일 목록을 출력
                 length =0;
