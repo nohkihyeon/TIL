@@ -2,7 +2,7 @@
 
  > [1. 관련 헤더 ](#1-관련-헤더) <br>
  > [2. sockaddr 구조체 ](#2-sockaddr-구조체) <br>
- > [3. sockaddr_in 구조체 ](#3-sockaddr-in-구조체) <br>  
+ > [3. sockaddr_in 구조체 ](#3-sockaddr-in-구조체) <br>
  > [4. sockaddr_in6 구조체 ](#4-sockaddr-in6-구조체) <br>
  > [5. sockaddr_un 구조체 ](#5-sockaddr-un-구조체) <br>
 
@@ -25,7 +25,7 @@ struct sockaddr{
   - sa_family : 주소체계를 구분하기 위한 변수 cf) u_short --> unsigned short
   - sa_data : 실제 주소를 저장하기 위한 변수 14bytes
 
-## 3. sockaddr_in 구조체
+## 3. sockaddr in 구조체
 sockaddr 구조체에서 sa_family가 AF_INET인 경우 사용하는 구조체
 sockaddr을 그대로 사용하면 sa_data에 ip와 port번호가 조합되어 있어 읽고 쓰기가 불편
 그래서 sockaddr_in을 사용 (IPv4 주소체계 사용)
@@ -46,7 +46,7 @@ struct in_addr{
 - sin_addr : 호스트 IP 주소
 - in_zero : 8 byes dummy data, struct sockaddr구조체와 크기를 일치시키려는 목적
 
-## 4. sockaddr_in6 구조체
+## 4. sockaddr in6 구조체
 IPv6 주소체계의 소켓주소를 사용하는 구조체
 IPv4 사용되는 struct_sockaddr_in과 달리 struct_sockaddr_in6는 bzero() 또는 memset() 함수를 통해 0으로 초기화
 
@@ -72,7 +72,7 @@ struct in6_addr{
 - sin6_addr : 16bBytes(128bits)의 주소 IPv6주소를 저장하는 변수
 - sin6_scope_id : sin6_addr의 주소범위에 따라 달라지는 식별자를 포함할 수 있다.
 
-## 5. sockaddr_un 구조체
+## 5. sockaddr un 구조체
 AF_UNIX 또는 AF_LOCAL인 경우
 - 하나의 시스템에서 서로다른 프로세스 사이의 통신에 사용되는 소켓의 주소를 지정하는데 사용하는 구조체
 - 'Unix Domain Socket'라고도 한다.
