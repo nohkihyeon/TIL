@@ -1,10 +1,11 @@
 # [네트워크] sockaddr, sockaddr_in, sockaddr_un 구조체
 
- > [1. 관련 헤더](#1-관련-헤더) <br>
- > [2. sockaddr 구조체](#2-sockaddr-구조체) <br>
- > [3. sockaddr_in 구조체](#3-sockaddr-in-구조체) <br>
- > [4. sockaddr_in6 구조체](#4-sockaddr-in6-구조체) <br>
- > [5. sockaddr_un 구조체](#5-sockaddr-un-구조체) <br>
+ > [1. 관련 헤더 ](#1-관련-헤더) <br>
+ > [2. sockaddr 구조체 ](#2-sockaddr-구조체) <br>
+ > [3. sockaddr_in 구조체 ](#3-sockaddr-in-구조체) <br>  
+ > [4. sockaddr_in6 구조체 ](#4-sockaddr-in6-구조체) <br>
+ > [5. sockaddr_un 구조체 ](#5-sockaddr-un-구조체) <br>
+
 ## 1. 관련 헤더
 ```c
 #include <sys/socket.h>
