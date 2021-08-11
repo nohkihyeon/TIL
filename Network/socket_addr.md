@@ -4,7 +4,7 @@
  > [2. sockaddr 구조체 ](#2-sockaddr-구조체) <br>
  > [3. sockaddr_in 구조체 ](#3-sockaddr-in-구조체) <br>
  > [4. sockaddr_in6 구조체 ](#4-sockaddr-in6-구조체) <br>
- > [5. sockaddr_un 구조체 ](#5-sockaddr-un-구조체) <br>
+ > [5. sockaddr_un 구조체 ](#5-sockaddr_un-구조체) <br>
 
 ## 1. 관련 헤더
 ```c
@@ -72,7 +72,7 @@ struct in6_addr{
 - sin6_addr : 16bBytes(128bits)의 주소 IPv6주소를 저장하는 변수
 - sin6_scope_id : sin6_addr의 주소범위에 따라 달라지는 식별자를 포함할 수 있다.
 
-## 5. sockaddr un 구조체
+## 5. sockaddr_un 구조체
 AF_UNIX 또는 AF_LOCAL인 경우
 - 하나의 시스템에서 서로다른 프로세스 사이의 통신에 사용되는 소켓의 주소를 지정하는데 사용하는 구조체
 - 'Unix Domain Socket'라고도 한다.
