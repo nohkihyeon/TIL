@@ -37,7 +37,7 @@ inet_aton( )및 inet_addr( )은 좀더 일반적인 표현법인 'numbers-and-do
 hexadecimal and octal number formats, and formats that don't require all four bytes to be explicitly written.  
 ### 같이 보면 좋은 함수
 getnameinfo( ) <br>
-[getaddrinfo( )](#3-addrinfo-구조체) <br>
+[getaddrinfo( )](#4-getaddrinfo-함수) <br>
 [inet_ntop( )](#2-inet_ntop-함수) <br>
 
 ## 2. inet_ntop 함수
@@ -66,7 +66,7 @@ const char *inet_ntop(int af, const void *src, char * dst, socklen_t size);
 
 ### 같이 보면 좋은 함수
 getnameinfo( ) <br>
-getaddrinfo( ) <br>
+[getaddrinfo( )](#4-getaddrinfo-함수) <br>
 [inet_pton( )](#1-inet_pton-함수) <br>
 
 
@@ -91,5 +91,49 @@ struct addrinfo {
 }
 ```
 ### 같이 보면 좋은 함수
-getaddrinfo()
+[getaddrinfo( )](#4-getaddrinfo-함수) <br>
 
+
+
+## 4. getaddrinfo 함수
+### SUMMARY
+- domain address를 받아서 네트워크 주소 정보(IP address)를 가져오는 함수
+- http://www.google.co.kr domain address가 사람이 알아보기 쉽게 만들어진 것이다.
+- 컴퓨터는 이 주소를 이용해 구글의 서버를 찾기가 힘들다. domain address -> IP address 변환이 필요함
+### 관련헤더
+```
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+```
+### 함수원형
+```c
+int getaddrinfo(const char *hostname,
+             const cahr *service,
+             const struct addrinfo *hints,
+             struct addrinfo **result);
+             
+void freeaddrinfo(struct addrinfo *res);
+```
+매개변수 4가지
+- hostname [in] : 호스트 이름 혹은 주소 문자열
+- service [in] : 서비스 이름 혹은 10진수로 표현한 포트 번호 문자열
+- hints [in] : getaddrinfo 함수에게 말그대로 힌트를 준다. 희망하는 유형을 알려주는 힌트 제공
+- result [out] : DNS서버로부터 받은 네트워크 주소 정보(IP 주소)를 돌려주는 output 매개변수이다. addrinfo 구조체를 사용하며, LinkedList이다.
+![image](https://user-images.githubusercontent.com/65120581/129138649-254cfaf8-25f8-4dbe-90d7-471acb1e4256.png)
+
+### Return Value
+- 0반환 : 성공
+- 0이 아닌 값 : 실패
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+>## 출처
+
+
+>[ [하얀쿠아의 이것저것 만들기 Blog]](https://techlog.gurucat.net/293)
