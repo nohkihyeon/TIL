@@ -1,4 +1,4 @@
-# C reference
+# socket Function
 
 ## 1. inet_pton 함수
 - inet_pton() 함수는 사람이 알아보기 쉬운 텍스트 형태의 IPv4와 IPv6 주소를 binary 형태로 변환 기능
@@ -119,13 +119,44 @@ void freeaddrinfo(struct addrinfo *res);
 - hostname [in] : 호스트 이름 혹은 주소 문자열
 - service [in] : 서비스 이름 혹은 10진수로 표현한 포트 번호 문자열
 - hints [in] : getaddrinfo 함수에게 말그대로 힌트를 준다. 희망하는 유형을 알려주는 힌트 제공
-- result [out] : DNS서버로부터 받은 네트워크 주소 정보(IP 주소)를 돌려주는 output 매개변수이다. addrinfo 구조체를 사용하며, LinkedList이다.
+- result [out] : DNS서버로부터 받은 네트워크 주소 정보(IP 주소)를 돌려주는 output 매개변수이다. addrinfo 구조체를 사용하며, LinkedList이다. <br>
 ![image](https://user-images.githubusercontent.com/65120581/129138649-254cfaf8-25f8-4dbe-90d7-471acb1e4256.png)
 
 ### Return Value
 - 0반환 : 성공
 - 0이 아닌 값 : 실패
+```c
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <string.h>
+#include <stdio.h>
 
+int main(int argc, char *argv[]){
+        int status;
+        struct addrinfo hints;
+        struct addrinfo *servinfo, *tmp;                // 결과를 저장할 변수
+        char host[256];
+
+        memset(&hints, 0, sizeof(hints));               // hints 구조체의 모든 값을 0으로 초기화
+        hints.ai_family = AF_UNSPEC;                    // IPv4 IPv6 상관없이 결과 모두 반환
+        hints.ai_socktype = SOCK_STREAM;                // TCP stream sockets
+
+        status = getaddrinfo("www.google.com", "80", &hints, &servinfo);
+        printf("%d\n", status);
+
+        for(tmp = servinfo; tmp !=NULL; tmp = tmp->ai_next){
+                getnameinfo(tmp->ai_addr, tmp->ai_addrlen, host, sizeof(host), NULL, 0, NI_NUMERICHOST);
+                puts(host);
+        }
+
+        freeaddrinfo(servinfo);
+
+}
+```
+![image](https://user-images.githubusercontent.com/65120581/129146714-55cc16f8-3d40-46dc-a5c9-8f1ffb21b09c.png)
+
+![getaddrinfo](https://user-images.githubusercontent.com/65120581/129146997-17406dcf-a249-4ebb-ae2a-ad41e9c6df01.gif)
 
 <br>
 <br>
