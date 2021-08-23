@@ -1,6 +1,6 @@
 >##  [shellscript ](#shellscript)
 >##  [!/bin/sh 의미 ](#--bin-sh-의미)
->##  [shell script를 사용하는 이유 ](#shell-script-를-사용하는-이유)
+>##  [shell script를 사용하는 이유 ](#shell-script를-사용하는-이유)
 >##  [간단한 쉘 스크립트 실행 ](#간단한-쉘-스크립트-실행)
 
 
