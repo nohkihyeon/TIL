@@ -1,10 +1,4 @@
->##  [shellscript ](#shellscript)
->##  [!/bin/sh 의미 ](#--bin-sh-의미)
->##  [shell script를 사용하는 이유 ](#shell-script를-사용하는-이유)
->##  [간단한 쉘 스크립트 실행 ](#간단한-쉘-스크립트-실행)
-
-
-# shellscript
+# 1. shellscript
 쉘 스크립트는 쉘에게 무슨 명령들을 실행할지 알려주는 스크립트 파일이다.
 - bash 쉘을 사용하는 스크립트
 ```shell
@@ -12,7 +6,7 @@
 echo "hello, world"
 printf "hello, world"
 ```
-# !/bin/sh 의미
+# 2. #!/bin/sh 의미
 - #!/bin/sh 스크립트 파일을 bash쉘로 실행
 - #!/bin/bash 같은 의미
 - 명령어 해석기가 bash shell임을 미리 알려주는 것
@@ -23,7 +17,7 @@ ls -al /bin/sh
 ![image](https://user-images.githubusercontent.com/65120581/130381085-808cce19-fee8-4a0f-8162-7a58fcf8486b.png)
 
 
-# shell script를 사용하는 이유
+# 3. shell script를 사용하는 이유
 - 반복되는 작업을 자동화하기 위해 스크립트 형태로 미리 틀을 만들어 놓고 실행
 - 스케줄링을 돌려서 파일만 실행하도록 할수도 있으며, 스크립트의 내용을 몰라도 누구나 실행 가능 <BR>
 ![image](https://user-images.githubusercontent.com/65120581/130382196-29b8f73c-d4ba-4b81-b76a-240d3676889e.png)
@@ -40,7 +34,7 @@ echo "hello World"
 
 ```
 
-# 간단한 쉘 스크립트 실행
+# 4. 간단한 쉘 스크립트 실행
 - `$ ./shell.sh`실행 시 <br>
 ![image](https://user-images.githubusercontent.com/65120581/130388871-0a31bc04-539b-4c55-876b-6534f972839f.png)
 - 실행 권한이 없기 때문에 허가 거부 <br>
