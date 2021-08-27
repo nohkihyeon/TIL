@@ -1,6 +1,8 @@
 # [Linux] 환경변수
 Linux 커맨드 창에 `$ cd` 입력하면 로그인 했을 시 디렉토리로 돌아가게 된다.
 ![image](https://user-images.githubusercontent.com/65120581/131077352-908ca55f-c917-4e65-a79c-22dfe7928068.png) <br>
+![화면 캡처 2021-08-27 154241](https://user-images.githubusercontent.com/65120581/131083883-6454178c-4514-4537-8929-4fd92fc89fe5.png)
+
 이와 관련된 것이 Linux 환경변수이다.
 리눅스의 환경변수를 등록하는 방법에 대해 알아보자  
 
