@@ -112,7 +112,7 @@ public class CameraCapture : MonoBehaviour
         // Screenshot();
     }
 
-    private setActiveTrue()
+    private void setActiveTrue()
     {
         Canvas.SetActive(true);
     }
