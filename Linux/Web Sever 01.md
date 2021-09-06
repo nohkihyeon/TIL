@@ -46,5 +46,4 @@
 
 
 ## 텔넷을 이용하여 아파치 웹 서버에 웹 문서 요청
-- 텔넷으로 127.0.0.1의 80번 포트로 연결하고, HTTP 규약에 따라 `GET /inde.html HTTP/1.0\r\n\r\n`과 같은 문서 요청 메시지를 웹서버로 전송하자.
-- 그러면 웹서버는 환경 변수 DocumentRoot에 설정된 문서 파일 홈 디렉토리에서 해당 파일 문서(/usr/local/apache/htdocs/index.html)를 읽어서 클라이언트에게 보내준다.
+- 텔넷으로 127.0.0.1의 80번 포트로 연결하고, HTTP 규약에 따라 `GET /inde.html HTTP/1.0\r\n\r\n`과 같은 문서 요청 메시지를 웹서버로 전송하면 웹서버는 환경 변수 DocumentRoot에 설정된 문서 파일 홈 디렉토리에서 해당 파일 문서(/usr/local/apache/htdocs/index.html)를 읽어서 클라이언트에게 보내준다.
