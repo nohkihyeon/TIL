@@ -50,9 +50,12 @@
 - telnet 명령으로 아파치 웹 서버에 HTML 문서를 요청한 결과
 ![image](https://user-images.githubusercontent.com/65120581/132308041-7e594e09-c7ed-4a29-a055-1c3bea208fdd.png)
 ![image](https://user-images.githubusercontent.com/65120581/132308257-8a4bf484-fccd-4ecf-82a1-c3ec67a6707e.png)
+<br>
+
 <details>
-<summary>접기/펼치기 버튼</summary>
+<summary>webServer.c</summary>
 <div markdown="1">
+  
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -253,13 +256,15 @@ do_web(int c_sock)
                 if(type == ERROR) exit(-1);
 
         }
-
 ```
+
 </div>
 </details>
 
+  
+  
 <details>
-<summary>접기/펼치기 버튼</summary>
+<summary>webClient.c</summary>
 <div markdown="1">
 
 ```c
