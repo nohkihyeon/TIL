@@ -14,6 +14,6 @@
 ![image](https://user-images.githubusercontent.com/65120581/132468753-a4df1752-7d4d-4edc-b0c3-2c7e89585423.png)
 - Text/html 클릭 / 아래의 화면은 해당 페이지 패킷 스니핑 결과이다
 ![image](https://user-images.githubusercontent.com/65120581/132469142-40970b16-1ea6-4dc1-b60d-2d680ae50eed.png)
-- 서버에 있는 html 파일과 Ipv4 TCP 정보
+- Ipv4 TCP 정보 등을 조회 가능
 ![image](https://user-images.githubusercontent.com/65120581/132469168-bea324c1-e995-4c2b-8ae0-543680d9f39e.png)
 
