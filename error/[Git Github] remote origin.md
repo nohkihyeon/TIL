@@ -1,5 +1,6 @@
 ## 문제
-<img width="676" alt="스크린샷 2021-09-11 오후 11 51 14" src="https://user-images.githubusercontent.com/65120581/132991428-262e64c7-8059-4e13-a5ca-8536c4ef0bd3.png">
+<img width="776" alt="스크린샷 2021-09-12 오후 11 28 40" src="https://user-images.githubusercontent.com/65120581/132991570-f2bef1f1-8a99-4118-a402-c08109bf3cbd.png">
+
 
 ## 해결방법
 
