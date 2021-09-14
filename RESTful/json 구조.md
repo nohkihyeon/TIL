@@ -58,12 +58,22 @@ int main (int argc, char** argv)
 
 ```
   
+- `gcc jansson_test.c -o jansson_test` 하면 에러 발생 <br>
+![image](https://user-images.githubusercontent.com/65120581/133227530-519b8dc7-3ae5-40d6-9b4a-79e2c6309a39.png)
+  
+- `-ljansson` 추가해서 gcc <br>
+![image](https://user-images.githubusercontent.com/65120581/133227603-971392d5-af9f-4e6b-8803-2b9e227aceba.png)
+
+
+  
+## data.json
+```json
+  ["/usr/bin", "/usr/etc", "/usr/games", "/usr/include", "/usr/lib", "/usr/lib64", "/usr/libexec", "/usr/local", "/usr/sbin", "/usr/share", "/usr/src", "/usr/tmp"]
+```
+  
+## 결과화면
+![image](https://user-images.githubusercontent.com/65120581/133227849-da656037-d02a-46d9-8728-c18419c57590.png)
+
   
   
-  
-  
-  
-### set enc
-  ![image](https://user-images.githubusercontent.com/65120581/133207530-f6ea3054-c1d2-4a7a-aeb7-4b40602b6553.png)
-:set enc=utf-8
-  
+
