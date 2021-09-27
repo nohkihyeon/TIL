@@ -472,5 +472,7 @@ void error_handling(char* msg){
 ![image](https://user-images.githubusercontent.com/65120581/134869147-af30f002-d999-4e8a-8f08-536da59dbffd.png)
 
 
+- 배열에 5개 초과 시
+![image](https://user-images.githubusercontent.com/65120581/134877196-a596f3e9-461f-49a9-b470-76b6c1efd514.png)
 
 
