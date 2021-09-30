@@ -20,7 +20,7 @@
   } Div;
   #endif
 ```
-- __STDIV_H__라는 매크로를 정의한 적이 없다면 #inndef  ~ #endif 사이에 있는 모든 내용을 main.c에 포함시킨다.
+- __STDIV_H__라는 매크로를 정의한 적이 없다면 #ifndef  ~ #endif 사이에 있는 모든 내용을 main.c에 포함시킨다.
 - 구조체의 중복 선언을 방지할 수 있다.
 #### 2. intdiv.h
 ```c
