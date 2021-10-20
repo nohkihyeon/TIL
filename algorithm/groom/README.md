@@ -1,3 +1,0 @@
-# for NHN
-
-groom test 
