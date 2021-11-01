@@ -110,3 +110,75 @@ n = 저장되는 항목 개수
 M = 해시테이블 크기
 
  ```
+ ### 1. Open Address 방식
+ - 해시 충돌이 발생하면 다른 해시 버킷에 해당 자료를 삽입하는 방식이다.
+ - 버킷이란 바구니와 같은 개념으로 데이터를 저장하기 위한 공간이라고 생각하면 된다.
+ - 공개 주소 방식이라고도 불리는 이 알고리즘은 Collision이 발생하면 데이터를 저장할 장소를 찾아 헤맨다. Worst Case의 경우 비어 있는 버킷을 찾지 못하고 탐색을 시작한 위치까지 되돌아 올 수 있다.
+ ### 2. Separate Chaining 방식
+- 일반적으로 Open Address는 Separate Chainingq보다 느리다. 
+- Open Addressing의 경우 해시 버킷을 채운 밀도가 높아질수록 Worst Case 발생 빈도가 더 높아지기 때문이다.
+- 반면 분리 연결법 방식의 경우 해시 충돌이 잘 발생하지 않도록 보조 해시 함수를 통해 조정할 수 있다면 Worst Case에 가까워지는 빈도를 줄일 수 있다.
+- Java7에서는 Seperate Chaining 방식을 사용하여 HashMap을 구현하고 있다. separate chainging 방식으로는 두 가지 구현 방식이 존재한다.
+  - 연결 리스트를 사용하는 방식(Linked List) 각각의 버킷(bucket)들을 연결리스트(Linked List)로 만들어 Collision 이 발생하면 해당 bucket 의 list 에 추가하는 방식이다. 연결 리스트의 특징을 그대로 이어받아 삭제 또는 삽입이 간단하다. 하지만 단점도 그대로 물려받아 작은 데이터들을 저장할 때 연결 리스트 자체의 오버헤드가 부담이 된다. 또 다른 특징으로는, 버킷을 계속해서 사용하는 Open Address 방식에 비해 테이블의 확장을 늦출 수 있다.
+  - Tree 를 사용하는 방식 (Red-Black Tree) 기본적인 알고리즘은 Separate Chaining 방식과 동일하며 연결 리스트 대신 트리를 사용하는 방식이다. 연결 리스트를 사용할 것인가와 트리를 사용할 것인가에 대한 기준은 하나의 해시 버킷에 할당된 key-value 쌍의 개수이다. 데이터의 개수가 적다면 링크드 리스트를 사용하는 것이 맞다. 트리는 기본적으로 메모리 사용량이 많기 때문이다. 데이터 개수가 적을 때 Worst Case 를 살펴보면 트리와 링크드 리스트의 성능 상 차이가 거의 없다. 따라서 메모리 측면을 봤을 때 데이터 개수가 적을 때는 링크드 리스트를 사용한다.
+
+
+
+
+한 가지 상황을 가정해보자. 해시 버킷에 6 개 의 key-value 쌍이 들어있었다. 그리고 하나의 값이 추가되었다. 만약 기준이 6 과 7 이라면 자료구조를 링크드 리스트에서 트리로 변경해야 한다. 그러다 바로 하나의 값이 삭제된다면 다시 트리에서 링크드 리스트로 자료구조를 변경해야 한다. 각각 자료구조로 넘어가는 기준이 1 이라면 Switching 비용이 너무 많이 필요하게 되는 것이다. 그래서 2 라는 여유를 남겨두고 기준을 잡아준 것이다. 따라서 데이터의 개수가 6 개에서 7 개로 증가했을 때는 링크드 리스트의 자료구조를 취하고 있을 것이고 8 개에서 7 개로 감소했을 때는 트리의 자료구조를 취하고 있을 것이다.
+Open Address vs Separate Chaining
+
+일단 두 방식 모두 Worst Case 에서 O(M)이다. 하지만 Open Address방식은 연속된 공간에 데이터를 저장하기 때문에 Separate Chaining에 비해 캐시 효율이 높다. 따라서 데이터의 개수가 충분히 적다면 Open Address방식이 Separate Chaining보다 더 성능이 좋다. 한 가지 차이점이 더 존재한다. Separate Chaining방식에 비해 Open Address방식은 버킷을 계속해서 사용한다. 따라서 Separate Chaining 방식은 테이블의 확장을 보다 늦출 수 있다.
+
+보조 해시 함수
+
+보조 해시 함수(supplement hash function)의 목적은 key의 해시 값을 변형하여 해시 충돌 가능성을 줄이는 것이다. Separate Chaining 방식을 사용할 때 함께 사용되며 보조 해시 함수로 Worst Case 에 가까워지는 경우를 줄일 수 있다.
+
+
+해시 버킷 동적 확장(Resize)
+
+해시 버킷의 개수가 적다면 메모리 사용을 아낄 수 있지만 해시 충돌로 인해 성능 상 손실이 발생한다. 그래서 HashMap 은 key-value 쌍 데이터 개수가 일정 개수 이상이 되면 해시 버킷의 개수를 두 배로 늘린다. 이렇게 늘리면 해시 충돌로 인한 성능 손실 문제를 어느 정도 해결할 수 있다. 또 애매모호한 '일정 개수 이상'이라는 표현이 등장했다. 해시 버킷 크기를 두 배로 확장하는 임계점은 현재 데이터 개수가 해시 버킷의 개수의 75%가 될 때이다. 0.75라는 숫자는 load factor 라고 불린다.
+
+
+## Graph
+- 정점과 간선의 집합
+
+### 그래프를 구현하는 두 방법
+#### 1. 인접 행렬 : 정방 행렬을 사용하는 방법
+- 해당하는 위치의 value 값을 통해서 vertex 같의 연결 관계를 O(1)으로 파악할 수 있다. Edge 개수와는 무관하게 V<sup>2</sup>의 Space Complexity를 갖는다. Dense Graph를 표현할 때 적절한 방법이다.
+#### 2. 인접 리스트 : 연결 리스트를 사용하는 방법
+- vertex의 adjacent list를 확인해봐야 하므로 vertex 간 연결되어 있는지 확인하는데 오래 걸린다. Space Complexity는 O(E+V)이다. Sparse graph를 표현하는데 적당한 방법이다.
+### 그래프 탐색
+그래프는 정점의 구성 뿐만 아니라 간선의 연결에도 규칙이 존재하지 않기 때문에 탐색이 복잡하다. 따라서 그래프의 모든 정점을 탐색하기 위한 방법은 다음 두가지 알고리즘을 기반으로 한다.
+#### 1. 깊이 우선 탐색 (Depth First Search :DFS)
+- 그래프 상에 존재하는 임의의 한 정점으로부터 연결되어 있는 한 정점으로만 나아간다라는 방법을 우선으로 탐색한다. 일단 연결된 정점으로 탐색하는 것이다. 연결할 수 있는 정점이 있을 때까지 계속 연결하다가 더 이상 연결되지 않은 정점이 없으면 바로 그 전 단계의 정점으로 돌아가서 연결할 수 있는 정점이 있는지 살펴봐야 할 것이다.
+- 갔던 길을 되돌아 오는 상황이 존재하는 미로찾기처럼 구성하면 되는 것이다.
+- Stack을 사용해서 구현한다.
+- Time Complexity : O(V+E)... vertex 수 + edge 수
+#### 2. 너비 우선 탐색 (Breadth First Search : BFS)
+- 그래프 상에 존재하는 임의의 한 정점으로부터 연결되어 있는 모든 정점으로 나아간다. Tree에서의 level order traversal 형식으로 진행되는 것이다. 
+- BFS에서는 자료구조로 Queue를 사용한다.
+- Time Complexity : O(V+E)... vertex 수 + edge 수 BFS로 구한 경로는 최단 경로이다.
+
+### MINIMUM SPANNING TREE
+
+그래프 G의 spanning tree 중 edge weight 의 합이 최소인 spanning tree를 말한다. 여기서 말하는 spanning tree란 그래프 G 의 모든 vertex 가 cycle 이 없이 연결된 형태를 말한다.
+Kruskal Algorithm
+
+초기화 작업으로 edge 없이 vertex 들만으로 그래프를 구성한다. 그리고 weight 가 제일 작은 edge 부터 검토한다. 그러기 위해선 Edge Set 을 non-decreasing 으로 sorting 해야 한다. 그리고 가장 작은 weight 에 해당하는 edge 를 추가하는데 추가할 때 그래프에 cycle 이 생기지 않는 경우에만 추가한다. spanning tree 가 완성되면 모든 vertex 들이 연결된 상태로 종료가 되고 완성될 수 없는 그래프에 대해서는 모든 edge 에 대해 판단이 이루어지면 종료된다. Kruskal Algorithm의 세부 동작과정 Kruskal Algorithm 관련 Code
+
+어떻게 cycle 생성 여부를 판단하는가?
+
+Graph 의 각 vertex 에 set-id라는 것을 추가적으로 부여한다. 그리고 초기화 과정에서 모두 1~n 까지의 값으로 각각의 vertex 들을 초기화 한다. 여기서 0 은 어떠한 edge 와도 연결되지 않았음을 의미하게 된다. 그리고 연결할 때마다 set-id를 하나로 통일시키는데, 값이 동일한 set-id 개수가 많은 set-id 값으로 통일시킨다.
+
+Time Complexity
+
+Edge 의 weight 를 기준으로 sorting - O(E log E)
+cycle 생성 여부를 검사하고 set-id 를 통일 - O(E + V log V) => 전체 시간 복잡도 : O(E log E)
+Prim Algorithm
+
+초기화 과정에서 한 개의 vertex 로 이루어진 초기 그래프 A 를 구성한다. 그리고나서 그래프 A 내부에 있는 vertex 로부터 외부에 있는 vertex 사이의 edge 를 연결하는데 그 중 가장 작은 weight 의 edge 를 통해 연결되는 vertex 를 추가한다. 어떤 vertex 건 간에 상관없이 edge 의 weight 를 기준으로 연결하는 것이다. 이렇게 연결된 vertex 는 그래프 A 에 포함된다. 위 과정을 반복하고 모든 vertex 들이 연결되면 종료한다.
+
+Time Complexity
+
+=> 전체 시간 복잡도 : O(E log V)
