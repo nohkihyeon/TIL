@@ -100,10 +100,12 @@ public class Main {
 <details>
 <summary>정답 접기/펼치기 버튼</summary>
 <div markdown="1">
+	
 해설)
 이미 원하는 숫자가 들어가있는 자리는 건드릴 필요가 없다. 따라서 우리가 건드려야 할 칸은 아래 두가지 경우에 속한다.
 1. 현재 숫자가 0이고 목표 숫자가 1인 경우
 2. 현재 숫자가 1이고 목표 숫자가 0인 경우
+	
 ```java
 import java.io.*;
 
