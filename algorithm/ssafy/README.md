@@ -305,6 +305,99 @@ LIS 문제
 	
 1. 전체 사람 - LIS = 정답
 2. 12 - 5 = 7
+	
+	
 </div>
 </details>
+	
+	
+
+## 7번 X번째 숫자
+1234567891011121314151617...
+위와 같이 12345... 숫자를 붙여서 만든 수열이 있다.
+x번째 숫자를 구하여라 
+문제)
+```
+1번) 17
+2번) 25
+3번) 33
+4번) 120
+5번) 274
+```	
+<details>
+<summary>정답 접기/펼치기 버튼</summary>
+<div markdown="1">
+
+1의 자리 숫자 : 1~9 9개
+2의 자리 숫자 : 10~99 180개
+3의 자리 숫자 : 100~999 2700개
+
+1번 17
+1. 17-9 = 8
+2. 8/2 = 4, 10부터 4번째 수열 : 13
+3. 13의 3이 정답
+	
+2번 25
+1. 25-9 = 16
+2. 16/2 = 8, 10부터 8번째 수열 : 17
+3. 17의 7이 정답
+	
+3번 33
+1. 33-9 = 24
+2. 24/2 = 12, 10부터 12번째 수열 : 21
+3. 21의 1이 정답
+	
+4번 120
+1. 120-9 = 111
+2. 111/2 = 55, 나머지 1
+3. 10부터 56번째 수열 : 65 의 십의자리 정답 정답:6
+	
+5번 274 (9+180=189보다 크므로 3자리 수라는 것을 알 수 있다.)
+1. 274-9 = 265, 265 - 180 = 88
+2. 88/3 = 29, 나머지가 1
+3. 100부터 29번째 수열 : 128 의 백의자리 
+3. 128의 1이 정답
+	
+	
+```java
+import java.io.IOException;
+
+public class Main {
+	public static void main(String[] args) throws IOException{
+		String line ="";
+			
+		for(int i=1; i<275; i++) {
+			line += i;
+		}
+		System.out.println(line.charAt(16));
+		System.out.println(line.charAt(24));
+		System.out.println(line.charAt(32));
+		System.out.println(line.charAt(119));
+		System.out.println(line.charAt(273));
+		
+		System.out.print(line.charAt(15));
+		System.out.print(line.charAt(16));
+		System.out.println();
+		System.out.print(line.charAt(23));
+		System.out.print(line.charAt(24));
+		System.out.println();
+		System.out.print(line.charAt(31));
+		System.out.print(line.charAt(32));
+		System.out.println();
+		System.out.print(line.charAt(119));
+		System.out.print(line.charAt(120));
+		System.out.println();
+		System.out.print(line.charAt(273));
+		System.out.print(line.charAt(274));
+		System.out.print(line.charAt(275));
+	}
+
+}
+
+
+
+```
+</div>
+</details>
+	
 
