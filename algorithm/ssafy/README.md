@@ -89,18 +89,77 @@ public class Main {
 
 문제)
 ```
-1번) 01110. 11110					// 3
-2번) 01010. 10101					// 3
-3번) 1111000. 0000111					// 3
-4번) 10111001101. 10111101000				// 3
-5번) 1111010101010101010101. 0100101011011010101		// 3
+1번) 01110. 11110					
+2번) 01010. 10101					
+3번) 1111000. 0000111					
+4번) 10111001101. 10111101000				
+5번) 1111010101010101010101. 0100101011011010101		
 ```
 
+
+<details>
+<summary>정답 접기/펼치기 버튼</summary>
+<div markdown="1">
 해설)
 이미 원하는 숫자가 들어가있는 자리는 건드릴 필요가 없다. 따라서 우리가 건드려야 할 칸은 아래 두가지 경우에 속한다.
 1. 현재 숫자가 0이고 목표 숫자가 1인 경우
 2. 현재 숫자가 1이고 목표 숫자가 0인 경우
+```java
+import java.io.*;
 
+public class Main {
+
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());  //테스트 케이스 개수
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < t; i++) {
+			String[] line = br.readLine().split(" ");
+			
+			String n = line[0];  //이진수 1
+			String m = line[1];  //이진수 2
+			
+			int one = 0;
+			int zero = 0;
+			
+			for (int j = 0; j < m.length(); j++) {
+				if (n.charAt(j) != m.charAt(j)) {
+					if(m.charAt(j) == '1') {
+						one ++;
+					}
+					else {
+						zero ++;
+					}
+				}
+			}
+			sb.append(Math.max(one, zero) + "\n");
+		}
+		System.out.println(sb);
+	}
+
+}
+```
+#### 입력
+```
+5
+01110 11110
+01010 10101
+1111000 0000111
+10111001101 10111101000
+1111010101010101010101 0100101011011010101
+```
+#### 출력	
+```
+1
+3
+4
+2
+8
+```
+				  
+</div>
+</details>
 
 ## 3번 이상한 음식점
 이곳은 맛집이 아니라서 어떤 음식은 너무 짜고 어던 음식은 너무 싱겁다. 짠 음식과 싱거운 음식을 번갈아가며 먹으면 맛이 없기 때문에 우리는 코스 음식 중 몇개만 골라서 싱거운 음식으로 싲가해서 점점 싸게 먹다가 어느 순간부터 점점 싱겁게 먹으려고 한다. 각 음식의 염도가 순서대로 주어질 때, 위와 같이 먹으면 최대 몇 개를 먹을 수 있는지 구하여라.
