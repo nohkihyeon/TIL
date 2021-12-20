@@ -2,6 +2,7 @@
 
 ## 운영체제의 역할
 <img width="1130" alt="스크린샷 2021-10-31 오후 8 03 15" src="https://user-images.githubusercontent.com/65120581/139579754-fd7a97ea-a058-46dd-b6b8-617986e7205a.png">
+
 - User Interface (편리성)
   - CUI (Character User Interface)
   - GUI (Graphical User Interface)
