@@ -78,6 +78,52 @@
   
 ## SQL Injection
 - 해커에 의해 조작된 SQL 쿼리문이 데이터베이스에 그대로 전달되어 비정상적 명령을 실행시키는 공격 기법
-- 
-  
-  
+
+
+
+
+# Index
+- 테이블에서 원하는 데이터를 쉽고 빠르게 찾기 위해 사용
+- 인덱스는 자주 사용되는 필드 값으로 만들어진 원본 테이블의 사본이라고 생각할 수 있다.
+- Alter 문을 사용하여 테이블에 인덱스 추가 가능
+
+# MySql 인덱스 타입
+1. 기본 인덱스
+2. UNIQUE INDEX
+3. FULLTEXT INDEX
+
+```sql
+ALTER TABLE 테이블이름
+ADD INDEX 인덱스이름(필드이름)
+```
+
+## Index tkrwp
+1. ALTER 문
+2. DROP 문
+
+```sql
+ALTEER TABLE 테이블이름
+DROP INDEX 인덱스이름
+```
+
+```sql
+DROP INDEX 인덱스이름
+ON 테이블이름
+```
+# VIEW
+- 일종의 가상 테이블
+
+## VIEW 수정
+```sql
+ALTER VIEW 뷰이름 AS
+SELECT 필드이름1, 필드이름2
+FROM 테이블이름
+```
+
+
+## VIEW 삭제
+```sql
+DROP VIEW 뷰이름
+```
+
+
