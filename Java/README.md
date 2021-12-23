@@ -171,5 +171,11 @@ MyArray<Integer> myArr = new MyArray<>(); // Java SE 7부터 가능함.
 - Set 인터페이스 : 순서가 없는 데이터 집합, 데이터의 중복을 허용하지 않음 / HashSet, TreeSet
 - Map 인터페이스 : 키와 값의 한 쌍으로 이루어지는 데이터의 집합, 순서가 없음 / HashMap, TreeMap, HashTable, Properties
 
+## Comparable Comparator
+- Comparable<T> 인터페이스
+  - 객체를 정렬하는데 사용되는 compareTo() 메소드를 정의하고 있다.
+  - 자바에서 같은 타입의 인스턴스를 서로 비교해야만 하는 클래스들은 모두 Comparable 인터페이스를 구현하고 있다.
+  - Boolean을 제외한 래퍼 클래스나 String, Time, Date와 같은 클래스의 인스턴스는 모두 정렬 가능
+
 
 > 출처 [TCO School.com](http://www.tcpschool.com/java/java_intro_programming)
