@@ -97,7 +97,7 @@ ALTER TABLE 테이블이름
 ADD INDEX 인덱스이름(필드이름)
 ```
 
-## Index tkrwp
+## Index 삭제
 1. ALTER 문
 2. DROP 문
 
