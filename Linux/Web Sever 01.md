@@ -2,6 +2,7 @@
 웹 브라우저와 웹 서버 사이에서 HTML 문서 등을 전송할 때 사용하는 프로토콜
 웹 브라우저가 웹 서버에 연결해서 HTTP 프로토콜의 규약에 따라 HTML 문서를 요청하면 웹서버는 이 요청을 분석한 후 웹 브라우저로 해당하는 HTML 문서를 반환하여 응답한다.
 웹 브라아저는 웹 서버로부터 받은 HTML 문서를 해석해서 GUI를 통해 사용자에게 보내준다.
+
 ![image](https://user-images.githubusercontent.com/65120581/132170147-4c10dc87-c538-49d1-9fc8-694984210518.png) <br>
 [출처 웹의 구동원리](http://tcpschool.com/webbasic/works)
 
