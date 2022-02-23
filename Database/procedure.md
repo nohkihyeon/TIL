@@ -69,3 +69,19 @@ BEGIN
   
 END;
 ```
+
+
+```sql
+CREATE OR REPLACE NONEDITIONABLE TYPE TY_ORDER_INFO_ALIAS FORCE AS OBJECT
+(
+  emp_identity VARCHAR2(100),
+  goods_no     NUMBER(10),
+  quantity     NUMBER(10),
+
+  CONSTRUCTOR FUNCTION TY_ORDER_INFO_ALIAS(arg_emp_identity VARCHAR2 DEFAULT NULL,
+                                           arg_goods_no     NUMBER DEFAULT NULL,
+                                           arg_quantity     NUMBER DEFAULT NULL)
+    RETURN SELF AS RESULT
+)
+
+```
