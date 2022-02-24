@@ -14,12 +14,15 @@
 
 
 ```sql
-create or replace PROCEDURE ORDERING_PROC
-( p_emp_identity IN pmember.emp_identity%TYPE,
-  p_goods_no IN goods.goods_no%TYPE,
-  p_quantity IN goods.goods_quantity%TYPE
-) 
-IS 
+
+
+CREATE OR REPLACE NONEDITIONABLE PROCEDURE ORDERING_PROC
+(   ORDER_ARRAY IN TBL_ORDER_INFO_ALIAS
+)
+
+IS
+ORDER_EX1 TBL_ORDER_INFO_ALIAS;
+
 cnt NUMBER := 0;
 isMember NUMBER := 0;
 leftQuantity NUMBER := 0;
@@ -31,57 +34,118 @@ NOT_ENOUGH EXCEPTION;
 NOT_FOUND_IDENTITY EXCEPTION;
 
 BEGIN
-  -- 동일한 goods_no가 있는지 확인
+  orderNumber := to_char(SYSDATE,'yyyymmdd') || LPAD(ORDER_NUM_SEQ.nextval, 4,'0');
+  
+
+  FOR i IN ORDER_ARRAY.FIRST..ORDER_ARRAY.LAST LOOP 
+ 
+     /* 
+     DBMS_OUTPUT.PUT_LINE('Emp id: '||ORDER_ARRAY(i).emp_identity|| 
+                         ' item: '||ORDER_ARRAY(i).goods_no|| 
+                         ' qauntity: '||ORDER_ARRAY(i).quantity);  
+                         */
   BEGIN
-  SELECT COUNT(*) INTO cnt FROM goods g WHERE g.goods_no = p_goods_no;
-  select count(*) into isMember from pmember where emp_identity = p_emp_identity;
-  SELECT goods_quantity INTO leftQuantity FROM goods WHERE goods_no = p_goods_no;
+  SELECT COUNT(*) INTO cnt FROM goods g WHERE g.goods_no = ORDER_ARRAY(i).goods_no;
+  select count(*) into isMember from pmember where emp_identity = ORDER_ARRAY(i).emp_identity;
+  SELECT goods_quantity INTO leftQuantity FROM goods WHERE goods_no = ORDER_ARRAY(i).goods_no;
   END;
 
   -- 주문번호가 없으면 Exception
-  IF cnt = 0 THEN RAISE NOT_FOUND_ERROR; END IF;
+  IF cnt = 0 THEN RAISE NOT_FOUND_ERROR; EXIT; END IF;
   -- 회원 아이디 없으면 Exception
-  IF isMember = 0 THEN RAISE NOT_FOUND_IDENTITY; END IF;
+  IF isMember = 0 THEN RAISE NOT_FOUND_IDENTITY; EXIT; END IF;
   -- 주문수량이 부족하면 Exception
-  IF p_quantity > leftQuantity THEN RAISE NOT_ENOUGH;
+  IF ORDER_ARRAY(i).quantity > leftQuantity THEN RAISE NOT_ENOUGH; EXIT;
   ELSE
-    UPDATE goods SET goods_quantity = goods_quantity-p_quantity WHERE goods_no = p_goods_no;
-    BEGIN
-      orderNumber := to_char(SYSDATE,'yyyymmdd') || LPAD(ORDER_NUM_SEQ.nextval, 4,'0');
-      SELECT goods_name INTO goodName FROM goods WHERE goods_no = p_goods_no;
-      SELECT goods_price INTO goodPrice FROM price p WHERE p.goods_no = p_goods_no AND SYSDATE BETWEEN CAST(st_dt AS DATE) AND CAST(ed_dt AS DATE);
+    UPDATE goods SET goods_quantity = goods_quantity-ORDER_ARRAY(i).quantity WHERE goods_no = ORDER_ARRAY(i).goods_no;
+    BEGIN  
+      SELECT goods_name INTO goodName FROM goods WHERE goods_no = ORDER_ARRAY(i).goods_no;
+      SELECT goods_price INTO goodPrice FROM price p WHERE p.goods_no = ORDER_ARRAY(i).goods_no AND SYSDATE BETWEEN CAST(st_dt AS DATE) AND CAST(ed_dt AS DATE);
     END;
-    insert into orders (order_no, emp_identity, or_dt) values(orderNumber, p_emp_identity, SYSDATE);
-    insert into orderlist(order_no, order_index, goods_no, quantity, goods_price, goods_name, total_cost) VALUES(orderNumber, Order_Idx_Seq.Nextval, p_goods_no, p_quantity, goodPrice, goodName, p_quantity*goodPrice);
-    
+    insert into orderlist(order_no, order_index, goods_no, quantity, goods_price, goods_name, total_cost) VALUES(orderNumber, Order_Idx_Seq.Nextval, ORDER_ARRAY(i).goods_no, ORDER_ARRAY(i).quantity, goodPrice, goodName, ORDER_ARRAY(i).quantity*goodPrice);
+    COMMIT;
   END IF;
-    
+                         
+    END LOOP;
+  insert into orders (order_no, emp_identity, or_dt) values(orderNumber, ORDER_ARRAY(1).emp_identity, SYSDATE);
+  COMMIT; 
+  -- 동일한 goods_no가 있는지 확인
+  
+
   EXCEPTION
     WHEN NOT_FOUND_ERROR THEN
       dbms_output.put_line('상품번호가 없음');
+      ROLLBACK;
     WHEN NOT_ENOUGH THEN
       dbms_output.put_line('수량 부족');
-		WHEN NOT_FOUND_IDENTITY THEN
-			dbms_output.put_line('회원 아님');
+      ROLLBACK;
+    WHEN NOT_FOUND_IDENTITY THEN
+      dbms_output.put_line('회원 아님');
+      ROLLBACK;
     WHEN OTHERS THEN
       dbms_output.put_line('예외발생');
-    
-  
+      Dbms_Output.put_line ( DBMS_UTILITY.FORMAT_ERROR_STACK() );
+      Dbms_Output.put_line ( DBMS_UTILITY.FORMAT_ERROR_BACKTRACE() );
+      ROLLBACK;
+
 END;
+
+COMMIT;
+
 ```
 
 
 ```sql
-CREATE OR REPLACE NONEDITIONABLE TYPE TY_ORDER_INFO_ALIAS FORCE AS OBJECT
-(
-  emp_identity VARCHAR2(100),
-  goods_no     NUMBER(10),
-  quantity     NUMBER(10),
+CREATE OR REPLACE NONEDITIONABLE PROCEDURE ORDERING_DATA_PROC
+IS
+  ORDER_EX1 TBL_ORDER_INFO_ALIAS;
+  ORDER_EX2 TBL_ORDER_INFO_ALIAS;
 
-  CONSTRUCTOR FUNCTION TY_ORDER_INFO_ALIAS(arg_emp_identity VARCHAR2 DEFAULT NULL,
-                                           arg_goods_no     NUMBER DEFAULT NULL,
-                                           arg_quantity     NUMBER DEFAULT NULL)
-    RETURN SELF AS RESULT
-)
+BEGIN
+  ORDER_EX1 := TBL_ORDER_INFO_ALIAS();
+  ORDER_EX2 := TBL_ORDER_INFO_ALIAS();
+  
+  DBMS_OUTPUT.put_line('1:' || ORDER_EX1.last);
+  ORDER_EX1.extend;
+  DBMS_OUTPUT.put_line('2:' || ORDER_EX1.last); /* v_emp_info_lst.last : index  */
+  ORDER_EX1(1) := TY_ORDER_INFO_ALIAS(NULL);
+  ORDER_EX1(1).emp_identity := 'Jac014';
+  ORDER_EX1(1).goods_no := 12;
+  ORDER_EX1(1).quantity := 3;
+
+  DBMS_OUTPUT.put_line('3:' || ORDER_EX1.last);
+  ORDER_EX1.extend;
+  DBMS_OUTPUT.put_line('4???:' || ORDER_EX1.last);
+  ORDER_EX1(2) := TY_ORDER_INFO_ALIAS(NULL);
+  ORDER_EX1(2).emp_identity := 'Jac014';
+  ORDER_EX1(2).goods_no := 13;
+  ORDER_EX1(2).quantity := 1;
+  
+  ORDER_EX2.extend;
+  ORDER_EX2(1) := TY_ORDER_INFO_ALIAS(NULL);
+  ORDER_EX2(1).emp_identity := 'Geo032';
+  ORDER_EX2(1).goods_no := 35;
+  ORDER_EX2(1).quantity := 1;
+  
+    BEGIN
+    ORDERING_PROC(ORDER_EX1);
+    ORDERING_PROC(ORDER_EX2);
+    END; 
+  FOR i IN ORDER_EX1.FIRST..ORDER_EX1.LAST LOOP 
+ 
+     DBMS_OUTPUT.PUT_LINE('Emp id: '||ORDER_EX1(i).emp_identity|| 
+                         ' item: '||ORDER_EX1(i).goods_no|| 
+                         ' qauntity: '||ORDER_EX1(i).quantity);  
+                    
+    END LOOP; 
+END;
+
+
+BEGIN
+  ORDERING_DATA_PROC;
+  END;
+
+COMMIT;
+ROLLBACK;
 
 ```
