@@ -149,3 +149,47 @@ COMMIT;
 ROLLBACK;
 
 ```
+
+### 객체 테이블
+```sql
+- 주문 객체
+
+```sql
+CREATE OR REPLACE NONEDITIONABLE TYPE TY_ORDER_INFO_ALIAS FORCE AS OBJECT
+(
+  emp_identity VARCHAR2(100),
+  goods_no     NUMBER(10),
+  quantity     NUMBER(10),
+
+  CONSTRUCTOR FUNCTION TY_ORDER_INFO_ALIAS(arg_emp_identity VARCHAR2 DEFAULT NULL,
+                                           arg_goods_no     NUMBER DEFAULT NULL,
+                                           arg_quantity     NUMBER DEFAULT NULL)
+    RETURN SELF AS RESULT
+)
+```
+
+- 테이블
+
+```sql
+CREATE OR REPLACE NONEDITIONABLE TYPE TBL_ORDER_INFO_ALIAS
+   IS TABLE OF TY_ORDER_INFO_ALIAS
+```
+
+- 객체 생성자
+
+```sql
+CREATE OR REPLACE NONEDITIONABLE TYPE BODY TY_ORDER_INFO_ALIAS  IS
+
+    CONSTRUCTOR FUNCTION TY_ORDER_INFO_ALIAS(arg_emp_identity VARCHAR2 DEFAULT NULL,
+                                           arg_goods_no     NUMBER DEFAULT NULL,
+                                           arg_quantity     NUMBER DEFAULT NULL)
+    RETURN SELF AS RESULT AS
+    BEGIN
+        SELF.emp_identity := arg_emp_identity;
+        SELF.goods_no := arg_goods_no;
+        SELF.quantity := arg_quantity;
+        RETURN;
+    END;
+END;
+```
+```
