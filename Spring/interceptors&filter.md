@@ -16,6 +16,37 @@
   - PostHandle
   - afterComplete
   - afterConcurrentHandlingStarted
+  ```java
+  public class MyInterceptor implements HandlerInterceptor{
+	// controller로 보내기 전에 처리하는 인터셉터
+	// 반환이 false라면 controller로 요청을 안함
+	// 매개변수 Object는 핸들러 정보를 의미한다. ( RequestMapping , DefaultServletHandler ) 
+	@Override
+	public boolean preHandle(
+			HttpServletRequest request, HttpServletResponse response,
+			Object obj) throws Exception {
+		
+		System.out.println("MyInterCeptor - preHandle");
+		return false;
+	}
+
+	// controller의 handler가 끝나면 처리됨
+	@Override
+	public void postHandle(
+			HttpServletRequest request, HttpServletResponse response,
+			Object obj, ModelAndView mav)
+			throws Exception {
+	}
+
+	// view까지 처리가 끝난 후에 처리됨
+	@Override
+	public void afterCompletion(
+			HttpServletRequest request, HttpServletResponse response,
+			Object obj, Exception e)
+			throws Exception {
+	}
+}
+  ```
 2. WebMvcConfigurerAdapter를 상속받은 설정 클래스 구현
   - addInterceptors는 등록할 인터셉터를 설정, addPathPatterns는 적용할 url 패턴을 설정
   - excludePathPatterns의 경우 인터셉터를 제외할 url 패턴을 등록하는 메서드로써 해당 url로 접근시에는 인터셉터를 적용하지 않게 된다.
