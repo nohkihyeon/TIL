@@ -209,7 +209,7 @@ OderFood orderFood = new OrderFood(new Baemin());
 ```java
 public class Person{
   private String naem;
-  prvate Pet pet;
+  private Pet pet;
   public void setPet(Pet pet){
     this.pet = pet;
     }
