@@ -11,7 +11,13 @@
 ![yReDKjj](https://user-images.githubusercontent.com/65120581/159229798-3402a15e-046b-422f-a06e-1a814a79a967.png)
 
 
+- nginx : 서버시작
+- nginx -s stop : 서버종료(워커들이 요청을 처리중이더라도 그냥 종료한다.)
+- nginx -s quit : 워커 프로세스가 현재 요청 처리를 완료할 때까지 대기하고 모두 처리완료된 후에 서버 종료.
+- nginx -s reload : nginx config를 새로 로드한다. 마스터 프로세스가 설정을 다시 로드하라는 요청을 받으면 설정 유효성 검사후 새로운 워커 프로세스를 시작하고, 이전 워커 프로세스에게 종료 메시지를 보내게 되고 이전 워커 프로세스는 요청을 완료하게 되면 종료된다.
 
+
+>> https://coding-start.tistory.com/381 [코딩스타트]
 >> https://whatisthenext.tistory.com/123
 
 >> [생활코딩-NGINX](https://opentutorials.org/module/384/3462)
