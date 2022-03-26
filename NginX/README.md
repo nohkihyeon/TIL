@@ -16,6 +16,15 @@
 - nginx -s quit : 워커 프로세스가 현재 요청 처리를 완료할 때까지 대기하고 모두 처리완료된 후에 서버 종료.
 - nginx -s reload : nginx config를 새로 로드한다. 마스터 프로세스가 설정을 다시 로드하라는 요청을 받으면 설정 유효성 검사후 새로운 워커 프로세스를 시작하고, 이전 워커 프로세스에게 종료 메시지를 보내게 되고 이전 워커 프로세스는 요청을 완료하게 되면 종료된다.
 
+# Reverse Proxy
+![image](https://user-images.githubusercontent.com/65120581/160223720-7d9a16f6-db35-4da6-9341-9428d0ae2bf6.jpeg)
+- nginx는 리버스 프록시로도 활용 가능
+- 보안 : 외부 사용자로부터 내부망에 있는 서버의 존재를 숨길 수 있다.
+- 로드밸런싱 : 리버스 프록시 서버가 내 서버에 대하 정보르 알고 있으므로 각 서버의 상태에 따라 부하르 분산시키며 요청으 전달
+
+
+
+
 
 >> https://coding-start.tistory.com/381 [코딩스타트]
 >> https://whatisthenext.tistory.com/123
