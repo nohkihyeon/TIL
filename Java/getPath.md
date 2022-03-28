@@ -1,4 +1,7 @@
-```javaimport lombok.*;
+- 11번가 API로 xml 형태 full path 경로 
+
+```java
+import lombok.*;
 
 import java.util.HashMap;
 
