@@ -106,3 +106,9 @@ public class Main {
     }
 }
 ```
+
+- 특정 로우 제거
+```sql
+delete from table
+where 조건
+```
