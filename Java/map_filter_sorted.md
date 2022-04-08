@@ -18,3 +18,31 @@ System.out.println(list.stream().filter(t->t.length() < 5).collect(Collectors.jo
 ```java
 System.out.println(list.stream().filter(t->t.length() > 5).sorted().collect(Collectors.toList()));
 ```
+- sorted는 스트림으 아이템들으 정렬항 새로우 스트림으 생성
+```java
+List<String> langs =
+        Arrays.asList("java", "kotlin", "haskell", "ruby", "smalltalk");
+System.out.println("sorted:");
+langs.stream().sorted()
+        .forEach(System.out::println);
+
+System.out.println("reversed:");
+langs.stream().sorted(Comparator.reverseOrder())
+        .forEach(System.out::println);
+```
+## 결과
+```
+sorted:
+haskell
+java
+kotlin
+ruby
+smalltalk
+
+reversed:
+smalltalk
+ruby
+kotlin
+java
+haskell
+```
