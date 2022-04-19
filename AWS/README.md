@@ -12,6 +12,9 @@
 
 ## Auto Scaling
 ## Lambda
+- 아마존 웹서비스에서 제공하는 서버리스 컴퓨팅
+- C#, PowerShell, Go, Java, JavaScript, Python, Ruby
+- 
 ## ECS
 ## EKS
 ## Elastic Beanstalk
