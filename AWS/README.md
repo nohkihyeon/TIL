@@ -11,6 +11,8 @@
   - ssh 명령어로 인스턴스에 연결
 
 ## Auto Scaling
+- 유연성을 이용한 핵심 기술
+- CPU, Memory, Dis, Network 등의 시스템 Metric값이나 application을 모니터링하고 size를 자동으로 조절하는 기술
 ## Lambda
 - 아마존 웹서비스에서 제공하는 서버리스 컴퓨팅
 - C#, PowerShell, Go, Java, JavaScript, Python, Ruby
