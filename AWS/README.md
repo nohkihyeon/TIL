@@ -24,6 +24,15 @@
 <img width="590" alt="스크린샷 2022-04-22 오후 9 30 37" src="https://user-images.githubusercontent.com/65120581/164714590-37115b4c-e6ec-433e-acb8-5ec83da025dc.png">
 
 ## EKS
+- Amazon Elastic Kubernetes Service
+- <img width="508" alt="스크린샷 2022-04-23 오전 12 36 47" src="https://user-images.githubusercontent.com/65120581/164747564-dfc82ed1-c78f-40eb-8265-5b5aefb6c4a6.png">
+1. AWS Management Console 또는 AWS CLI를 사용하거나 AWS SDK를 사용하여 Amazon EKS를 생성합니다.
+
+2. 관리형 또는 자체 관리형 Amazon EC2 노드를 실행하거나 워크로드를 AWS Fargate에 배포합니다.
+
+3. 클러스터가 준비되면 원하는 Kubernetes 도구(예: kubectl)를 구성하여 클러스터와 통신할 수 있습니다.
+
+4. 다른 Kubernetes 환경에서와 마찬가지로 Amazon EKS 클러스터에 워크로드를 배포 및 관리합니다. AWS Management Console을 사용하여 노드 및 워크로드에 대한 정보를 볼 수도 있습니다.
 ## Elastic Beanstalk
 
 # 네트워크 서비스
