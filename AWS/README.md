@@ -16,8 +16,13 @@
 ## Lambda
 - 아마존 웹서비스에서 제공하는 서버리스 컴퓨팅
 - C#, PowerShell, Go, Java, JavaScript, Python, Ruby
-- 
+ 
 ## ECS
+- Elastic Container Service
+- 클러스터에서 컨테이너를 쉽게 ㅣㄹ행, 중지 및 관리할 수 있게 해주는 컨테이너 관리 서비스
+- 구성요소
+<img width="590" alt="스크린샷 2022-04-22 오후 9 30 37" src="https://user-images.githubusercontent.com/65120581/164714590-37115b4c-e6ec-433e-acb8-5ec83da025dc.png">
+
 ## EKS
 ## Elastic Beanstalk
 
