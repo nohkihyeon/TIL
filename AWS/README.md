@@ -34,7 +34,8 @@
 
 4. 다른 Kubernetes 환경에서와 마찬가지로 Amazon EKS 클러스터에 워크로드를 배포 및 관리합니다. AWS Management Console을 사용하여 노드 및 워크로드에 대한 정보를 볼 수도 있습니다.
 ## Elastic Beanstalk
-
+- Java, Net, PHP, Node.js, Python, Ruby, Go, Docker를 사용하여 Apache, Nginx, Passenger, IIS와 같은 친숙한 서버에서 개발된 웹 애플리케이션 및 서비스를 간편하게 배포하고 조정할 수 있는 서비스
+- 코드를 업로드해서 용량 프로비저닝, 로드 밸런싱, 오토 스케일링, 애플리케이션 상태 모니터링, 배포를 자동으로 처리하도록 구성할 수 있음
 # 네트워크 서비스
 ## VPC
 ## CloudFront
