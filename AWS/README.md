@@ -38,7 +38,9 @@
 - 코드를 업로드해서 용량 프로비저닝, 로드 밸런싱, 오토 스케일링, 애플리케이션 상태 모니터링, 배포를 자동으로 처리하도록 구성할 수 있음
 # 네트워크 서비스
 ## VPC
+- Virtual Private Cloud
 ## CloudFront
+- AWS에서 제공하는 CDN 서비스
 ## Route53
 ## Elastic Load Balancing
 ## Direct Connect
