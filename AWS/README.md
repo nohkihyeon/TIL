@@ -42,6 +42,10 @@
 ## CloudFront
 - AWS에서 제공하는 CDN 서비스
 ## Route53
+- AWS에서 제공하는 DNS(Domain Name)
+<img width="693" alt="스크린샷 2022-04-27 오후 9 26 00" src="https://user-images.githubusercontent.com/65120581/165517614-4e78e263-79c3-42ea-b8d4-9821cc7b1a93.png">
+ Service)
+
 ## Elastic Load Balancing
 ## Direct Connect
 ## Transit Gateway 
