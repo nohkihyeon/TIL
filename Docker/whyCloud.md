@@ -19,5 +19,12 @@
    
  <img width="985" alt="스크린샷 2022-03-19 오후 11 09 42" src="https://user-images.githubusercontent.com/65120581/159124425-579182cd-2bd5-48d5-9203-e8ea49b1a995.png">
 
+## 디지털 변혁 전략
+- 구입 후 스티커 쇼크를 경계
+- 방치는 금물
+- 아키텍처 슬럼을 예방
+- 실패문제에 대비한 디자인
+
+
 > 출처
 > [[애자일한 기업들이 Cloud로 마이그레이션 하는 이유 Top 5]](https://partner.polarisofficecorp.com/atlassian/pages/viewpage.action?pageId=331669)
