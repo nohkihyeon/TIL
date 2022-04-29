@@ -51,7 +51,12 @@
 ## Transit Gateway 
 # 스토리 서비스
 ## EBS
+- Elastic Block Storage
+- Panorama - 작동 방식
+<img width="1091" alt="스크린샷 2022-04-29 오후 8 01 36" src="https://user-images.githubusercontent.com/65120581/165932465-75951994-f499-403d-9a14-d52f5f727a28.png">
+
 ## S3
+- Simple Storage Service
 ## EFS
 ## S3 Glacier
 
