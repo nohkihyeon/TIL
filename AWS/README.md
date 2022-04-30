@@ -58,6 +58,8 @@
 ## S3
 - Simple Storage Service
 ## EFS
+- Elastic File System
+- AWS 클라우스 서비스오 온프레밋 리소스에 사용할 수 있는 간단하게 확장가능함 탄력적인 완전 관리형 파일시스템 제공
 ## S3 Glacier
 
 # 데이터베이스 서비스
