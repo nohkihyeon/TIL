@@ -1,0 +1,10 @@
+- `docker images`
+- 이미지 조회
+- `docker run <옵션> <이미지이름> <실행할파일> `
+- run command
+- `docker ps`
+- 컨테이너 목록 조회
+- `docker start dev-web`
+- docker 실행
+- `docker attach dev-web`
+- docker 컨테이너 접속
