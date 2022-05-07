@@ -65,3 +65,5 @@
 # 데이터베이스 서비스
 ## RES
 ## DynamoDB
+- nosql 데이터베이스
+- 기본키가 존재 indexing과 Key 설정이 매우 중요
