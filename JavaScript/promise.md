@@ -54,3 +54,25 @@ let promise = new Promise(function(resolve, reject) {
   resolve(123); // 결과(123)를 즉시 resolve wjsekf
 });
 ```
+
+
+# 프로미스화
+- 콜백을 받는 함수를 프라미스를 반환하는 함수로 바꾸는 것을 promisification라고 한다.
+```javascript
+function loadScript(src, callback) {
+  let script = document.createelement('script');
+  script.src = src;
+  
+  script.onload = () => callback(null, script);
+  script.onerror = () => callback(new Error(`${src}를 불러오는 도중에 에러가 발생함`));
+  
+  document.head.append(script);
+}
+```
+
+
+
+
+
+
+
