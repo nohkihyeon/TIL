@@ -70,8 +70,17 @@ function loadScript(src, callback) {
 }
 ```
 
-
-
+```javascript
+let loadScriptPromise = function(src) {
+  return new Promise((resolve, reject) => {
+    loadScript(src, (err, script) => {
+      if(err) reject(err)
+      else resolve(script);
+    });
+  })
+}
+```
+- loadScriptPromise는 프로미스 기반 코드와 잘 융화됨
 
 
 
