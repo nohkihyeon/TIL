@@ -11,3 +11,7 @@
 - 레코드를 documents라 부름
 
 
+
+## Vertical Scaling & Horizontal Scaling
+
+- Vertical Scaling : 단순히 데이터베이스 서버의 성능을 향상시키는 것
