@@ -47,6 +47,15 @@
  Service)
 
 ## Elastic Load Balancing
+- 둘 이상의 가용 영역에서 EC2 인스턴스, 컨테이너, IP 주소 등 여러 대상에 걸쳐 수신되는 트래픽을 자동으로 분산
+- 등록된 대상의 상태를 모니터링하면서 상태가 양호한 대상으로 트래픽을 라우팅
+- Elastic Load Balancing 액세스
+  - AWS Management Console
+  - AWS CLI
+  - AWS SDK
+  - 쿼리 API
+
+
 ## Direct Connect
 ## Transit Gateway 
 # 스토리 서비스
